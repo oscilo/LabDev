@@ -1,0 +1,12 @@
+#ifndef TESTBLACKBOX_GLOBAL_H
+#define TESTBLACKBOX_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#ifdef TESTBLACKBOX_LIB
+# define TESTBLACKBOX_EXPORT Q_DECL_EXPORT
+#else
+# define TESTBLACKBOX_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // TESTBLACKBOX_GLOBAL_H
