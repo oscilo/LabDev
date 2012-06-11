@@ -5,8 +5,12 @@
 
 #include <AbstractFunc.h>
 
-class MicrostripResonatorFunc : public AbstractFunc
-{
+#define S_START		10
+#define L_START		18
+#define S_STEP		5
+#define L_STEP		2
+
+class MicrostripResonatorFunc : public AbstractFunc {
 public:
 	MicrostripResonatorFunc() {
 		init();
@@ -38,19 +42,19 @@ private:
 		QFile dataFile(fname);
 		dataFile.open(QIODevice::ReadOnly);
 
-		int cur_l = 18;
-		int cur_s = 10;
+		int cur_l;
+		int cur_s;
 
-		int l_step = 2;
-		int s_step = 5;
+		int l_step = L_STEP;
+		int s_step = S_STEP;
 
 		int last_l = 26;
 		int last_s = 20;
 
 		int valuesCount = dataFile.size() / (3 * 5 * sizeof(float));
 
-		for(; cur_s <= last_s; cur_s += s_step) {
-			for(; cur_l <= last_l; cur_l += l_step) {
+		for(cur_s = S_START; cur_s <= last_s; cur_s += s_step) {
+			for(cur_l = L_START; cur_l <= last_l; cur_l += l_step) {
 				QByteArray valuesArray = dataFile.read(valuesCount * sizeof(float));
 				QVector<float> valuesVector(valuesCount);
 				memcpy((char*)valuesVector.data(), valuesArray.data(), valuesCount * sizeof(float));
@@ -93,19 +97,30 @@ private:
 
 		AbstractFunc *add_func = inputs["input_signal"];
 
-		const QVector <float> &curValues(map.value(s).value(l));
+		int curS = S_START + (((s - S_START) / S_STEP) * S_STEP);
+		int curL = L_START + (((l - L_START) / L_STEP) * L_STEP);
+		int nextS = (s - curS) ? (curS + S_STEP) : curS;
+		int nextL = (l - curL) ? (curL + L_STEP) : curL;
+
+		const QVector <float> &curValues(map.value(curS).value(curL));
+		const QVector <float> &nextValues(map.value(nextS).value(nextL));
 
 		float arg = freq / 1000.;
 		int offset = (arg - 8.) / 0.004;
 
+		float totalWeight = ((curS == nextS) ? 0 : S_STEP) + ((curL == nextL) ? 0 : L_STEP);
+		float weight = 0.;
+		if(totalWeight)
+			weight = ((s - curS) + (l - curL)) / totalWeight;
+
 		const float &x1(freqValues.at(offset));
-		const float &y1(curValues.at(offset));
+		const float y1 = (curValues.at(offset) * (1 - weight)) + (nextValues.at(offset) * weight);
 
 		const float &x0(freqValues.at(offset - 1));
-		const float &y0(curValues.at(offset - 1));
+		const float y0 = (curValues.at(offset - 1) * (1 - weight)) + (nextValues.at(offset - 1) * weight);
 
 		const float &x2(freqValues.at(offset + 1));
-		const float &y2(curValues.at(offset + 1));
+		const float y2 = (curValues.at(offset + 1) * (1 - weight)) + (nextValues.at(offset + 1) * weight);
 
 		float &x(arg);
 
