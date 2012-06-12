@@ -41,7 +41,6 @@ Section "Core files (required)"
   Delete "$INSTDIR\Temp\vcredist_x86.exe"
   RMDir "$INSTDIR\Temp"
   
-  SetOutPath "$INSTDIR\Bin"
   ; Write the installation path into the registry
   WriteRegStr HKLM SOFTWARE\LaboratoryDevices "Install_Dir" "$INSTDIR"
   
@@ -58,7 +57,7 @@ SectionEnd
 Section "Start Menu Shortcuts"
 
   CreateDirectory "$SMPROGRAMS\LaboratoryDevices"
-  CreateShortCut "$SMPROGRAMS\LaboratoryDevices\Uninstall.lnk" "$INSTDIR\Bin\uninstall.exe" "" "$INSTDIR\Bin\uninstall.exe" 0
+  CreateShortCut "$SMPROGRAMS\LaboratoryDevices\Uninstall.lnk" "$INSTDIR\uninstall.exe" "" "$INSTDIR\uninstall.exe" 0
   CreateShortCut "$SMPROGRAMS\LaboratoryDevices\LaboratoryDevices.lnk" "$INSTDIR\Bin\LaboratoryDevices.exe" "" "$INSTDIR\Bin\LaboratoryDevices.exe" 0
   
 SectionEnd
