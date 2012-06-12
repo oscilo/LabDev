@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LaboratoryDevices", "LaboratoryDevices\LaboratoryDevices.vcproj", "{09202F8E-0161-409F-B786-EACA3FADACB8}"
 	ProjectSection(ProjectDependencies) = postProject
+		{003CCA19-4EFD-4669-9B29-C1DBCD890C08} = {003CCA19-4EFD-4669-9B29-C1DBCD890C08}
 		{5368504F-5693-47C8-BF2A-E69D866FCCAF} = {5368504F-5693-47C8-BF2A-E69D866FCCAF}
 		{78F1A3C9-FC39-47DC-8E2E-438B340E6A3F} = {78F1A3C9-FC39-47DC-8E2E-438B340E6A3F}
 		{FA463DD8-3F6F-456E-B104-9D5B36F3202A} = {FA463DD8-3F6F-456E-B104-9D5B36F3202A}
+		{DB763EEC-9DBA-4FA6-947F-D8F493423D7A} = {DB763EEC-9DBA-4FA6-947F-D8F493423D7A}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SweepFrequencyGenerator", "TestSFG\TestSFG.vcproj", "{78F1A3C9-FC39-47DC-8E2E-438B340E6A3F}"
@@ -15,11 +17,6 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ReductionIndicator", "TestIndic\TestIndic.vcproj", "{FA463DD8-3F6F-456E-B104-9D5B36F3202A}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CSTReader", "CSTReader\CSTReader.vcproj", "{900C6F42-350D-4C94-B296-61BE3C2ACE56}"
-EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "LaboratoryDevicePack", "LaboratoryDevicePack\LaboratoryDevicePack.vdproj", "{1CC14E4F-DFDA-48BA-8CFD-728100B9CD08}"
-	ProjectSection(ProjectDependencies) = postProject
-		{09202F8E-0161-409F-B786-EACA3FADACB8} = {09202F8E-0161-409F-B786-EACA3FADACB8}
-	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HighFrequencySignalsGenerator", "HighFrequencySignalsGenerator\HighFrequencySignalsGenerator.vcproj", "{003CCA19-4EFD-4669-9B29-C1DBCD890C08}"
 EndProject
@@ -38,6 +35,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Generators", "Generators", "{62A77A46-4FF4-49C1-A37A-12B208AF57A0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Indicators", "Indicators", "{8244EBA7-1A00-4D5B-BED5-D7AE5445BB54}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LaboratoryDevicesSetup", "LaboratoryDevicesSetup\LaboratoryDevicesSetup.vcproj", "{3EAC80FB-026E-4425-B991-0315C3EC786D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,8 +64,6 @@ Global
 		{900C6F42-350D-4C94-B296-61BE3C2ACE56}.Debug|Win32.Build.0 = Debug|Win32
 		{900C6F42-350D-4C94-B296-61BE3C2ACE56}.Release|Win32.ActiveCfg = Release|Win32
 		{900C6F42-350D-4C94-B296-61BE3C2ACE56}.Release|Win32.Build.0 = Release|Win32
-		{1CC14E4F-DFDA-48BA-8CFD-728100B9CD08}.Debug|Win32.ActiveCfg = Debug
-		{1CC14E4F-DFDA-48BA-8CFD-728100B9CD08}.Release|Win32.ActiveCfg = Release
 		{003CCA19-4EFD-4669-9B29-C1DBCD890C08}.Debug|Win32.ActiveCfg = Debug|Win32
 		{003CCA19-4EFD-4669-9B29-C1DBCD890C08}.Debug|Win32.Build.0 = Debug|Win32
 		{003CCA19-4EFD-4669-9B29-C1DBCD890C08}.Release|Win32.ActiveCfg = Release|Win32
@@ -79,6 +76,10 @@ Global
 		{5368504F-5693-47C8-BF2A-E69D866FCCAF}.Debug|Win32.Build.0 = Debug|Win32
 		{5368504F-5693-47C8-BF2A-E69D866FCCAF}.Release|Win32.ActiveCfg = Release|Win32
 		{5368504F-5693-47C8-BF2A-E69D866FCCAF}.Release|Win32.Build.0 = Release|Win32
+		{3EAC80FB-026E-4425-B991-0315C3EC786D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3EAC80FB-026E-4425-B991-0315C3EC786D}.Debug|Win32.Build.0 = Debug|Win32
+		{3EAC80FB-026E-4425-B991-0315C3EC786D}.Release|Win32.ActiveCfg = Release|Win32
+		{3EAC80FB-026E-4425-B991-0315C3EC786D}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
