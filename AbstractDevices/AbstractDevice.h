@@ -69,6 +69,8 @@ public:
 			ret << s->getAllowedInputs();
 		}
 
+		ret.removeDuplicates();
+
 		return ret;
 	}
 signals:
