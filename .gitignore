@@ -6,3 +6,4 @@
 *.bak
 Output/*.*
 LaboratoryDevicesSetup.exe
+Temp/
