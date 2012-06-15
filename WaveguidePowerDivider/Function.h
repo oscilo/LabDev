@@ -57,7 +57,7 @@ private:
 		rLast[80] = 50;
 		rLast[100] = 50;
 
-		int valuesCount = dataFile.size() / (3 * 5 * sizeof(float));
+		int valuesCount = dataFile.size() / ( (2 + 3 + 5 + 5 + 5) * sizeof(float));
 
 		for(cur_h = H_START; cur_h <= last_h; cur_h += h_step) {
 			for(cur_r = R_START; cur_r <= rLast[cur_h]; cur_r += r_step) {
