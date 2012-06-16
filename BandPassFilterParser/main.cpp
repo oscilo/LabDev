@@ -54,8 +54,8 @@ int main(int argc, char *argv[]) {
 
 	QRegExp rx("(-?\\d+\\.\\d+);?");
 	int f_num = 0;
-	int h1_num = 5;
-	int h2_num = 5;
+	int h1_num = H1_COUNT - 1;
+	int h2_num = H2_COUNT - 1;
 
 	CreateDataArray();
 
@@ -76,16 +76,16 @@ int main(int argc, char *argv[]) {
 			--h2_num;
 			if(0 > h2_num) {
 				--h1_num;
-				h2_num = 5;
+				h2_num = H2_COUNT - 1;
 			}
 		}
 
 		++f_num;
-		h1_num = 5;
-		h2_num = 5;
+		h1_num = H1_COUNT - 1;
+		h2_num = H2_COUNT - 1;
 	}
 
-	QFile dataFile("..\\BlackBoxValues\\MicrostripResonator.val");
+	QFile dataFile("..\\BlackBoxValues\\BandPassFilter.val");
 	dataFile.open(QIODevice::WriteOnly);
 
 	if(!dataFile.isOpen()) {
