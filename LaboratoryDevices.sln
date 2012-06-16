@@ -128,6 +128,6 @@ Global
 		{225198A5-71E4-41EA-A570-336A1FC1EB80} = {2050F6D2-8BA3-4F74-B4B7-66295F5134A2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		QtVersion = 480.x86.vc9
+		QtVersion = vs2008_4.7.2
 	EndGlobalSection
 EndGlobal
