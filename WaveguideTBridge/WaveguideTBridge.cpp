@@ -4,6 +4,12 @@ WaveguideTBridge::WaveguideTBridge(QWidget *parent, Qt::WFlags flags) :
 	AbstractDevice(parent, flags)
 {
 	back = new QPixmap("./Resources/WaveguideTBridge/back.png");
+
+	this->neededInputs << "inputSignal";
+	
+	QSize temp = back->size();
+	temp.scale(300, 300, Qt::KeepAspectRatioByExpanding);
+	this->setMinimumSize(temp);
 }
 WaveguideTBridge::~WaveguideTBridge() {
 	delete back;

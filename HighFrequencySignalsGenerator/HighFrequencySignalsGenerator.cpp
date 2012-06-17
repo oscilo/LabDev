@@ -167,7 +167,7 @@ void HighFrequencySignalsGenerator::resizeEvent(QResizeEvent *event) {
 	RetransformDisk();
 }
 void HighFrequencySignalsGenerator::mousePressEvent(QMouseEvent *event) {
-	this->setWindowTitle(QString("X: %1, Y: %2").arg(event->x()).arg(event->y()));
+	//this->setWindowTitle(QString("X: %1, Y: %2").arg(event->x()).arg(event->y()));
 }
 CommonDial* HighFrequencySignalsGenerator::CreateSubRange1() {
 	CommonDial *dial = new CommonDial("./Resources/HighFrequencySignalsGenerator/comfortable_grip.png", scale_k / 10., 1, this);
