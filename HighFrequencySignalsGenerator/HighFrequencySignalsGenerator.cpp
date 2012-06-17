@@ -67,7 +67,7 @@ HighFrequencySignalsGenerator::HighFrequencySignalsGenerator(QWidget *parent, Qt
 	temp.scale(500, 500, Qt::KeepAspectRatioByExpanding);
 	this->setMinimumSize(temp);
 	
-	curSize = back->size();
+	//curSize = back->size();
 
 	CreateWidgets();
 

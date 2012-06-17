@@ -32,6 +32,7 @@ public:
 		DT_BLACK_BOX,
 		DT_INDICATOR,
 		DT_HFSG,
+		DT_METER,
 	};
 	AbstractDevice(QWidget *parent = 0, Qt::WindowFlags f = 0) : QWidget(parent, f) {
 		uuid = QUuid::createUuid();

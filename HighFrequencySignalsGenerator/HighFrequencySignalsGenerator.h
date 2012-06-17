@@ -57,7 +57,7 @@ private:
 	QPixmap scaledDisk;
 	QPixmap transformedDisk;
 
-	QSize curSize;
+	//QSize curSize;
 	QPixmap resizedBack;
 	qreal diskAngle;
 	qreal amperMeterAngle;
