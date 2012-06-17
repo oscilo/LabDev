@@ -3,11 +3,11 @@
 
 #include "globals.h"
 
-//#include "Function.h"
+#include "Function.h"
 
-#include <AbstractDevice.h>
+#include <AbstractBlackBox.h>
 
-class WaveguideTBridge : public AbstractDevice {
+class WaveguideTBridge : public AbstractBlackBox {
 	Q_OBJECT
 	Q_INTERFACES(AbstractDevice)
 
@@ -16,7 +16,6 @@ public:
 	~WaveguideTBridge();
 
 	QString getDeviceName();
-	DeviceType getDeviceType();
 
 private:
 	void paintEvent(QPaintEvent *event);

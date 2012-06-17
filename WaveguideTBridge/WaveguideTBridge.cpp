@@ -1,11 +1,10 @@
 #include "WaveguideTBridge.h"
 
 WaveguideTBridge::WaveguideTBridge(QWidget *parent, Qt::WFlags flags) :
-	AbstractDevice(parent, flags)
+	AbstractBlackBox(parent, flags)
 {
 	back = new QPixmap("./Resources/WaveguideTBridge/back.png");
-
-	this->neededInputs << "inputSignal";
+	this->setSignal(SignalDirection::SD_OUTPUT_SIGNAL, "output_signal", new WaveguideTBridgeFunc);
 	
 	QSize temp = back->size();
 	temp.scale(300, 300, Qt::KeepAspectRatioByExpanding);
@@ -16,9 +15,6 @@ WaveguideTBridge::~WaveguideTBridge() {
 }
 QString WaveguideTBridge::getDeviceName() {
 	return RUS("Волноводный Т-мост");
-}
-AbstractDevice::DeviceType WaveguideTBridge::getDeviceType() {
-	return AbstractDevice::DT_METER;
 }
 void WaveguideTBridge::paintEvent(QPaintEvent *event) {
 	QSize neededSize = back->size();
