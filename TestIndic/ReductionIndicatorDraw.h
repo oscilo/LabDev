@@ -10,7 +10,7 @@ class ReductionIndicatorDraw : public AbstractDrawArea
 	Q_OBJECT
 
 public:
-	ReductionIndicatorDraw(QWidget *parent = 0, Qt::WFlags flags = 0);
+	ReductionIndicatorDraw(QWidget *parent = 0, Qt::WindowFlags flags = 0);
 	~ReductionIndicatorDraw();
 
 public slots:

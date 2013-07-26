@@ -15,7 +15,7 @@ class SweepFrequencyGenerator : public AbstractSFGenerator
 	Q_INTERFACES(AbstractSFGenerator AbstractDevice)
 
 public:
-	SweepFrequencyGenerator(QWidget *parent = 0, Qt::WFlags flags = 0);
+	SweepFrequencyGenerator(QWidget *parent = 0, Qt::WindowFlags flags = 0);
 	~SweepFrequencyGenerator();
 
 	QString getDeviceName();

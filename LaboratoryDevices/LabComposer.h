@@ -14,7 +14,7 @@ class LabComposer : public QMainWindow {
 	Q_OBJECT
 
 public:
-	LabComposer(QWidget *parent = 0, Qt::WFlags flags = 0);
+	LabComposer(QWidget *parent = 0, Qt::WindowFlags flags = 0);
 	~LabComposer();
 
 signals:

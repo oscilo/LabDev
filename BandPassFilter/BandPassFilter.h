@@ -33,7 +33,7 @@ class BandPassFilter : public AbstractBlackBox
 	Q_INTERFACES(AbstractBlackBox AbstractDevice)
 
 public:
-	BandPassFilter(QWidget *parent = 0, Qt::WFlags flags = 0);
+	BandPassFilter(QWidget *parent = 0, Qt::WindowFlags flags = 0);
 	QString getDeviceName();
 
 private slots:

@@ -8,7 +8,7 @@ class AbstractFactory : public QObject
 	Q_OBJECT
 
 public:
-	virtual AbstractDevice* CreateDevice(QWidget *parent = 0, Qt::WFlags flags = 0) = 0;
+	virtual AbstractDevice* CreateDevice(QWidget *parent = 0, Qt::WindowFlags flags = 0) = 0;
 };
 
 Q_DECLARE_INTERFACE(AbstractFactory, "AbstractFactory");

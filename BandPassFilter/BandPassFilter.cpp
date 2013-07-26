@@ -69,7 +69,7 @@ void PaintingWidget::resizeEvent(QResizeEvent *e) {
 	ScalePixmap();
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////
-BandPassFilter::BandPassFilter(QWidget *parent, Qt::WFlags flags) :
+BandPassFilter::BandPassFilter(QWidget *parent, Qt::WindowFlags flags) :
 	AbstractBlackBox(parent, flags)
 {
 	bandPassFilterFunc = new BandPassFilterFunc;

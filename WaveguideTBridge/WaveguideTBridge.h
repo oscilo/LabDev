@@ -12,7 +12,7 @@ class WaveguideTBridge : public AbstractBlackBox {
 	Q_INTERFACES(AbstractDevice)
 
 public:
-	WaveguideTBridge(QWidget *parent = 0, Qt::WFlags flags = 0);
+	WaveguideTBridge(QWidget *parent = 0, Qt::WindowFlags flags = 0);
 	~WaveguideTBridge();
 
 	QString getDeviceName();

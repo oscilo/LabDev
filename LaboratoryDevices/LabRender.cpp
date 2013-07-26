@@ -3,7 +3,7 @@
 #include <windows.h>
 #include <shellapi.h>
 
-LabRender::LabRender(QWidget *parent, Qt::WFlags flags)
+LabRender::LabRender(QWidget *parent, Qt::WindowFlags flags)
 	: QMainWindow(parent, flags)
 {
 	setMinimumSize(500, 200);

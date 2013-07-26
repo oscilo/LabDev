@@ -11,7 +11,7 @@ class AbstractIndicator : public AbstractDevice
 	Q_OBJECT
 
 public:
-	AbstractIndicator(AbstractDrawArea *draw_ptr, QWidget *parent = 0, Qt::WFlags flags = 0)
+	AbstractIndicator(AbstractDrawArea *draw_ptr, QWidget *parent = 0, Qt::WindowFlags flags = 0)
 			: AbstractDevice(parent, flags)
 	{
 		draw = draw_ptr;

@@ -16,7 +16,7 @@ class ReductionIndicator : public AbstractIndicator
 	Q_INTERFACES(AbstractIndicator AbstractDevice)
 
 public:
-	ReductionIndicator(QWidget *parent = 0, Qt::WFlags flags = 0);
+	ReductionIndicator(QWidget *parent = 0, Qt::WindowFlags flags = 0);
 	~ReductionIndicator();
 	
 	QString getDeviceName();

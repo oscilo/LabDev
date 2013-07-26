@@ -1,6 +1,6 @@
 #include "StartWindow.h"
 
-StartWindow::StartWindow(QWidget *parent, Qt::WFlags flags) :
+StartWindow::StartWindow(QWidget *parent, Qt::WindowFlags flags) :
 	QMainWindow(parent, flags)
 {
 	this->setFixedSize(600, 200);

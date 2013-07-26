@@ -5,11 +5,13 @@
 
 #include <QString>
 
-class DeviceException : public QtConcurrent::Exception
+#include <QException>
+
+class DeviceException : public QException
 {
 public:
 	DeviceException(const QString &_mess) : mess(_mess) {}
-	DeviceException(const DeviceException &a) : QtConcurrent::Exception(a), mess(a.getMess()) {}
+	DeviceException(const DeviceException &a) : QException(a), mess(a.getMess()) {}
 
 	DeviceException *clone() const
 		{ return new DeviceException(*this); }

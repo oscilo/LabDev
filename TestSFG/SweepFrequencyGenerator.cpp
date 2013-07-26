@@ -1,6 +1,6 @@
 #include "SweepFrequencyGenerator.h"
 
-SweepFrequencyGenerator::SweepFrequencyGenerator(QWidget *parent, Qt::WFlags flags)
+SweepFrequencyGenerator::SweepFrequencyGenerator(QWidget *parent, Qt::WindowFlags flags)
   :	AbstractSFGenerator(parent, flags),
   scale_k(1), dstate(DS_F_ST), back(0)
 {

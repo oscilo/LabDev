@@ -11,7 +11,7 @@ class AbstractSFGenerator: public AbstractDevice
 	Q_OBJECT
 
 public:
-	AbstractSFGenerator(QWidget *parent = 0, Qt::WFlags flags = 0) : AbstractDevice(parent, flags) {}
+	AbstractSFGenerator(QWidget *parent = 0, Qt::WindowFlags flags = 0) : AbstractDevice(parent, flags) {}
 	~AbstractSFGenerator() {}
 
 	

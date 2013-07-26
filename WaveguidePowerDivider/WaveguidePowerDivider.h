@@ -32,7 +32,7 @@ class WaveguidePowerDivider : public AbstractBlackBox {
 	Q_INTERFACES(AbstractBlackBox AbstractDevice)
 
 public:
-	WaveguidePowerDivider(QWidget *parent = 0, Qt::WFlags flags = 0);
+	WaveguidePowerDivider(QWidget *parent = 0, Qt::WindowFlags flags = 0);
 	QString getDeviceName();
 
 private slots:

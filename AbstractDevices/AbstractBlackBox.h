@@ -10,7 +10,7 @@ class AbstractBlackBox: public AbstractDevice
 	Q_OBJECT
 
 public:
-	AbstractBlackBox(QWidget *parent = 0, Qt::WFlags flags = 0) : AbstractDevice(parent, flags) {}
+	AbstractBlackBox(QWidget *parent = 0, Qt::WindowFlags flags = 0) : AbstractDevice(parent, flags) {}
 	~AbstractBlackBox() {}
 
 	DeviceType getDeviceType()

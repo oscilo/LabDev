@@ -33,7 +33,7 @@ class CoaxialWaveguideTransition : public AbstractBlackBox
 	Q_INTERFACES(AbstractBlackBox AbstractDevice)
 
 public:
-	CoaxialWaveguideTransition(QWidget *parent = 0, Qt::WFlags flags = 0);
+	CoaxialWaveguideTransition(QWidget *parent = 0, Qt::WindowFlags flags = 0);
 	QString getDeviceName();
 
 private slots:

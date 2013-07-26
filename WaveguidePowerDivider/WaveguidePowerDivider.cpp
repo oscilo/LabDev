@@ -54,7 +54,7 @@ void PaintingWidget::resizeEvent(QResizeEvent *e) {
 	ScalePixmap();
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////
-WaveguidePowerDivider::WaveguidePowerDivider(QWidget *parent, Qt::WFlags flags) :
+WaveguidePowerDivider::WaveguidePowerDivider(QWidget *parent, Qt::WindowFlags flags) :
 	AbstractBlackBox(parent, flags)
 {
 	waveguidePowerDividerLeft = new WaveguidePowerDividerFunc;

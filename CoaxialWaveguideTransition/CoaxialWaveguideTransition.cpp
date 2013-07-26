@@ -63,7 +63,7 @@ void PaintingWidget::resizeEvent(QResizeEvent *e) {
 	ScalePixmap();
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////
-CoaxialWaveguideTransition::CoaxialWaveguideTransition(QWidget *parent, Qt::WFlags flags) :
+CoaxialWaveguideTransition::CoaxialWaveguideTransition(QWidget *parent, Qt::WindowFlags flags) :
 	AbstractBlackBox(parent, flags)
 {
 	coaxialWaveguideTransitionFunc = new CoaxialWaveguideTransitionFunc;

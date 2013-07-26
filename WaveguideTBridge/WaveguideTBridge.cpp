@@ -1,6 +1,6 @@
 #include "WaveguideTBridge.h"
 
-WaveguideTBridge::WaveguideTBridge(QWidget *parent, Qt::WFlags flags) :
+WaveguideTBridge::WaveguideTBridge(QWidget *parent, Qt::WindowFlags flags) :
 	AbstractBlackBox(parent, flags)
 {
 	back = new QPixmap("./Resources/WaveguideTBridge/back.png");

@@ -2,7 +2,7 @@
 
 #define DI			300
 
-ReductionIndicatorDraw::ReductionIndicatorDraw(QWidget *parent, Qt::WFlags flags) : AbstractDrawArea(parent, flags),
+ReductionIndicatorDraw::ReductionIndicatorDraw(QWidget *parent, Qt::WindowFlags flags) : AbstractDrawArea(parent, flags),
 	LEN(1390), TL(126), scale_k(1)
 {
 	area_pic = new QPixmap("./Resources/DrawArea.png");

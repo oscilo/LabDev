@@ -12,7 +12,7 @@ class NarrowBandFilter : public AbstractBlackBox
 	Q_INTERFACES(AbstractBlackBox AbstractDevice)
 
 public:
-	NarrowBandFilter(QWidget *parent = 0, Qt::WFlags flags = 0);
+	NarrowBandFilter(QWidget *parent = 0, Qt::WindowFlags flags = 0);
 	QString getDeviceName();
 
 public slots:

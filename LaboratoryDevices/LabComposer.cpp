@@ -3,7 +3,7 @@
 #define NEW_FACILITY_BUTTON_ID		-1
 #define ERASE_DATA_BASE_BUTTON_ID	-2
 
-LabComposer::LabComposer(QWidget *parent, Qt::WFlags flags) :
+LabComposer::LabComposer(QWidget *parent, Qt::WindowFlags flags) :
 	QMainWindow(parent, flags), labFacArea(0)
 {
 	setMinimumSize(600, 600);

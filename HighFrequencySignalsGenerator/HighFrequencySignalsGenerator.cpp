@@ -46,7 +46,7 @@
 #define AMPERMETER_MAX_ANGLE		135.
 #define AMPERMETER_ANGLE_STEP		9.2
 
-HighFrequencySignalsGenerator::HighFrequencySignalsGenerator(QWidget *parent, Qt::WFlags flags) :
+HighFrequencySignalsGenerator::HighFrequencySignalsGenerator(QWidget *parent, Qt::WindowFlags flags) :
 	AbstractDevice(parent, flags),
 	scale_k(1),
 	subRange(1),

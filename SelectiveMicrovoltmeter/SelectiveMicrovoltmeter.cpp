@@ -1,6 +1,6 @@
 #include "SelectiveMicrovoltmeter.h"
 
-SelectiveMicrovoltmeter::SelectiveMicrovoltmeter(QWidget *parent, Qt::WFlags flags) :
+SelectiveMicrovoltmeter::SelectiveMicrovoltmeter(QWidget *parent, Qt::WindowFlags flags) :
 	AbstractDevice(parent, flags)
 {
 	back = new QPixmap("./Resources/SelectiveMicrovoltmeter/back.png");

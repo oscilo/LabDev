@@ -10,7 +10,7 @@ class StartWindow : public QMainWindow {
 	Q_OBJECT
 
 public:
-	StartWindow(QWidget *parent = 0, Qt::WFlags flags = 0);
+	StartWindow(QWidget *parent = 0, Qt::WindowFlags flags = 0);
 	~StartWindow();
 
 signals:

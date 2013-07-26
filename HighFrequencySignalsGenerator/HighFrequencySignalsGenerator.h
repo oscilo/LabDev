@@ -15,7 +15,7 @@ class HighFrequencySignalsGenerator : public AbstractDevice {
 	Q_INTERFACES(AbstractDevice)
 
 public:
-	HighFrequencySignalsGenerator(QWidget *parent = 0, Qt::WFlags flags = 0);
+	HighFrequencySignalsGenerator(QWidget *parent = 0, Qt::WindowFlags flags = 0);
 	~HighFrequencySignalsGenerator();
 
 	QString getDeviceName();

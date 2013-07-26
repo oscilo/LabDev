@@ -19,7 +19,7 @@ private:
 };
 ////////////////////////////////////////////////////////
 
-NarrowBandFilter::NarrowBandFilter(QWidget *parent, Qt::WFlags flags) :
+NarrowBandFilter::NarrowBandFilter(QWidget *parent, Qt::WindowFlags flags) :
 	AbstractBlackBox(parent, flags)
 {
 	this->setSignal(SignalDirection::SD_OUTPUT_SIGNAL, "output_signal", new NarrowBandFilterFunc);

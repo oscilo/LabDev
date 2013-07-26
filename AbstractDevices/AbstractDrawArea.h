@@ -10,7 +10,7 @@ class AbstractDrawArea : public QWidget
 	Q_OBJECT
 
 public:
-	AbstractDrawArea(QWidget *parent = 0, Qt::WFlags flags = 0) :	QWidget(parent, flags) {}
+	AbstractDrawArea(QWidget *parent = 0, Qt::WindowFlags flags = 0) :	QWidget(parent, flags) {}
 	~AbstractDrawArea(){}
 	
 	void setInputSignals(SignalsMap *_inputSignals)

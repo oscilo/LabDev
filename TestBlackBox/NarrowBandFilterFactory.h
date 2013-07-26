@@ -10,9 +10,10 @@
 class NARROWBANDFILTER_EXPORT NarrowBandFilterFactory : public AbstractFactory
 {
 	Q_INTERFACES(AbstractFactory)
+	Q_PLUGIN_METADATA(IID "AbstractFactory")
 
 public:
-	AbstractDevice* CreateDevice(QWidget *parent = 0, Qt::WFlags flags = 0);
+	AbstractDevice* CreateDevice(QWidget *parent = 0, Qt::WindowFlags flags = 0);
 };
 
 #endif

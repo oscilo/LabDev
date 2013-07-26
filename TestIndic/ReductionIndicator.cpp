@@ -1,6 +1,6 @@
 #include "ReductionIndicator.h"
 
-ReductionIndicator::ReductionIndicator(QWidget *parent, Qt::WFlags flags)
+ReductionIndicator::ReductionIndicator(QWidget *parent, Qt::WindowFlags flags)
   :	AbstractIndicator((AbstractDrawArea *)new ReductionIndicatorDraw(parent, flags), parent, flags),
   scale_k(1)
 {

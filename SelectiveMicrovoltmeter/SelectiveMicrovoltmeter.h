@@ -12,7 +12,7 @@ class SelectiveMicrovoltmeter : public AbstractDevice {
 	Q_INTERFACES(AbstractDevice)
 
 public:
-	SelectiveMicrovoltmeter(QWidget *parent = 0, Qt::WFlags flags = 0);
+	SelectiveMicrovoltmeter(QWidget *parent = 0, Qt::WindowFlags flags = 0);
 	~SelectiveMicrovoltmeter();
 
 	QString getDeviceName();

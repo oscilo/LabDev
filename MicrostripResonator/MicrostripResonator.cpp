@@ -48,7 +48,7 @@ void PaintingWidget::resizeEvent(QResizeEvent *e) {
 	ScalePixmap();
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////
-MicrostripResonator::MicrostripResonator(QWidget *parent, Qt::WFlags flags) :
+MicrostripResonator::MicrostripResonator(QWidget *parent, Qt::WindowFlags flags) :
 	AbstractBlackBox(parent, flags)
 {
 	microstripResonatorFunc = new MicrostripResonatorFunc;
