@@ -24,6 +24,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -138,6 +139,7 @@
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_LabRender.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_LoadingDllScreen.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
@@ -180,6 +182,7 @@
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_LabRender.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_LoadingDllScreen.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -364,7 +367,7 @@
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
       </Outputs>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Template|Win32'">
-      </AdditionalInputs> 
+      </AdditionalInputs>
     </CustomBuild>
     <CustomBuild Include="..\AbstractDevices\AbstractDevice.h">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Moc%27ing %(Filename)%(Extension)...</Message>
@@ -444,48 +447,6 @@
       </AdditionalInputs>
     </CustomBuild>
     <ClInclude Include="..\AbstractDevices\DeviceException.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BandPassFilter\BandPassFilter.vcxproj">
-      <Project>{225198a5-71e4-41ea-a570-336a1fc1eb80}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="..\CoaxialWaveguideTransition\CoaxialWaveguideTransition.vcxproj">
-      <Project>{8ead90c5-f03e-4456-a9a3-5162310c3e53}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="..\HighFrequencySignalsGenerator\HighFrequencySignalsGenerator.vcxproj">
-      <Project>{003cca19-4efd-4669-9b29-c1dbcd890c08}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="..\MicrostripResonator\MicrostripResonator.vcxproj">
-      <Project>{5368504f-5693-47c8-bf2a-e69d866fccaf}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="..\SelectiveMicrovoltmeter\SelectiveMicrovoltmeter.vcxproj">
-      <Project>{1353da03-3806-40f5-a8be-58ff1d83df89}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="..\TestBlackBox\TestBlackBox.vcxproj">
-      <Project>{db763eec-9dba-4fa6-947f-d8f493423d7a}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="..\TestIndic\TestIndic.vcxproj">
-      <Project>{fa463dd8-3f6f-456e-b104-9d5b36f3202a}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="..\TestSFG\TestSFG.vcxproj">
-      <Project>{78f1a3c9-fc39-47dc-8e2e-438b340e6a3f}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="..\WaveguidePowerDivider\WaveguidePowerDivider.vcxproj">
-      <Project>{48e3c951-2440-4ed8-92ff-2e75095cf164}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
-    <ProjectReference Include="..\WaveguideTBridge\WaveguideTBridge.vcxproj">
-      <Project>{297c8f92-8e26-4ae5-8836-84fc6c0c1576}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -36,6 +36,11 @@
       <Extensions>cpp;moc</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
+    <Filter Include="Generated Files\Template">
+      <UniqueIdentifier>{3358cd95-0165-4d29-83ca-e3a7367f39d4}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\DeviceElements\CommonDial.cpp">
@@ -77,15 +82,21 @@
     <ClCompile Include="GeneratedFiles\Debug\moc_SweepFrequencyGenerator.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_SweepFrequencyGeneratorFactory.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_SweepFrequencyGeneratorFactory.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Template\moc_SweepFrequencyGeneratorFactory.cpp">
+      <Filter>Generated Files\Template</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Function.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="globals.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SweepFrequencyGeneratorFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SweepFrequencyGeneratorGlobal.h">
@@ -107,6 +118,9 @@
     </CustomBuild>
     <CustomBuild Include="..\AbstractDevices\AbstractSFGenerator.h">
       <Filter>Header Files\AbstractDevices</Filter>
+    </CustomBuild>
+    <CustomBuild Include="SweepFrequencyGeneratorFactory.h">
+      <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
 </Project>

@@ -36,6 +36,11 @@
       <Extensions>cpp;moc</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
+    <Filter Include="Generated Files\Template">
+      <UniqueIdentifier>{4762ee6f-5573-4513-a256-d93cde010ba1}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\DeviceElements\CommonDial.cpp">
@@ -80,15 +85,21 @@
     <ClCompile Include="GeneratedFiles\Debug\moc_SubRangeSelector.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_HighFrequencySignalsGeneratorFactory.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_HighFrequencySignalsGeneratorFactory.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Template\moc_HighFrequencySignalsGeneratorFactory.cpp">
+      <Filter>Generated Files\Template</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Function.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="globals.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="HighFrequencySignalsGeneratorFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="HighFrequencySignalsGeneratorGlobal.h">
@@ -110,6 +121,9 @@
     </CustomBuild>
     <CustomBuild Include="..\AbstractDevices\AbstractFactory.h">
       <Filter>Header Files\AbstractDevices</Filter>
+    </CustomBuild>
+    <CustomBuild Include="HighFrequencySignalsGeneratorFactory.h">
+      <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
 </Project>

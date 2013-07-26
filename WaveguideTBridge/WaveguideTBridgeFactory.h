@@ -8,6 +8,7 @@
 #include "WaveguideTBridge.h"
 
 class WAVEGUIDETBRIDGE_EXPORT WaveguideTBridgeFactory : public AbstractFactory {
+	Q_OBJECT
 	Q_INTERFACES(AbstractFactory)
 	Q_PLUGIN_METADATA(IID "AbstractFactory")
 

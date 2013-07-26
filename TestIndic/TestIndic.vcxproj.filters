@@ -36,6 +36,11 @@
       <Extensions>cpp;moc</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
+    <Filter Include="Generated Files\Template">
+      <UniqueIdentifier>{e2fb5be9-b3bf-4112-a140-263306f42756}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\DeviceElements\CommonDial.cpp">
@@ -101,12 +106,18 @@
     <ClCompile Include="GeneratedFiles\Debug\moc_UpperLimitDial.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_ReductionIndicatorFactory.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_ReductionIndicatorFactory.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Template\moc_ReductionIndicatorFactory.cpp">
+      <Filter>Generated Files\Template</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="globals.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ReductionIndicatorFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ReductionIndicatorGlobal.h">
@@ -137,6 +148,9 @@
     </CustomBuild>
     <CustomBuild Include="..\AbstractDevices\AbstractIndicator.h">
       <Filter>Header Files\AbstractDevices</Filter>
+    </CustomBuild>
+    <CustomBuild Include="ReductionIndicatorFactory.h">
+      <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
 </Project>

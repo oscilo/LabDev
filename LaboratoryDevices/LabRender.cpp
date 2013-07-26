@@ -2,6 +2,7 @@
 
 #include <windows.h>
 #include <shellapi.h>
+#include <string>
 
 LabRender::LabRender(QWidget *parent, Qt::WindowFlags flags)
 	: QMainWindow(parent, flags)
@@ -91,15 +92,22 @@ bool LabRender::IsLabFacilityOpen()
 }
 void LabRender::ShowLabDescription()
 {
+	/*
 	QString file = labMerger->GetDescriptionFileName(lfac);
 	QFileInfo fi(file);
 
+	QString filePath = fi.canonicalFilePath();
+	QByteArray dataArray( (filePath.size() + 1) * 2, 0x00);
+	wchar_t *dataStr = (wchar_t*)dataArray.data();
+	filePath.toWCharArray(dataStr);
+
 	CoInitialize(NULL);
-	HINSTANCE ret = ShellExecute(GetForegroundWindow(), L"Open", fi.canonicalFilePath().toStdWString().c_str(), NULL, NULL, SW_SHOWNORMAL);
+	HINSTANCE ret = ShellExecute(GetForegroundWindow(), L"Open", dataStr, NULL, NULL, SW_SHOWNORMAL);
 	CoUninitialize();
 
 	if(ret <= (HINSTANCE)32)
 		QMessageBox::critical(this, RUS("Ошибка"), RUS("Ошибка открытия описания лабораторной работы!"));
+	//*/
 }
 void LabRender::CloseLabFacility()
 {
@@ -228,6 +236,8 @@ void LabRender::ShowMessageBox(const QString &title, const QString &message, QMe
 void LabRender::closeEvent(QCloseEvent *event) {
 	if(splash->isVisible())
 		event->ignore();
-	else
-		event->accept();
+	else {
+		int ret = QMessageBox::question(this, RUS("Выход"), RUS("Вы точно хотите выйти?"), QMessageBox::Yes, QMessageBox::No);
+		(QMessageBox::Yes == ret) ? event->accept() : event->ignore();
+	}
 }

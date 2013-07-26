@@ -8,6 +8,7 @@
 #include "MicrostripResonator.h"
 
 class MICROSTRIPRESONATOR_EXPORT MicrostripResonatorFactory : public AbstractFactory {
+	Q_OBJECT
 	Q_INTERFACES(AbstractFactory)
 	Q_PLUGIN_METADATA(IID "AbstractFactory")
 

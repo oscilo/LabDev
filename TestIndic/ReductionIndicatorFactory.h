@@ -9,6 +9,7 @@
 
 class REDUCTIONINDICATOR_EXPORT ReductionIndicatorFactory : public AbstractFactory
 {
+	Q_OBJECT
 	Q_INTERFACES(AbstractFactory)
 	Q_PLUGIN_METADATA(IID "AbstractFactory")
 

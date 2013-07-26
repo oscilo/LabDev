@@ -36,6 +36,11 @@
       <Extensions>cpp;moc</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
+    <Filter Include="Generated Files\Template">
+      <UniqueIdentifier>{815b61ea-a991-40b5-bb1b-510b0e594aa0}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CoaxialWaveguideTransition.cpp">
@@ -68,11 +73,17 @@
     <ClCompile Include="GeneratedFiles\Debug\moc_CoaxialWaveguideTransition.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_CoaxialWaveguideTransitionFactory.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_CoaxialWaveguideTransitionFactory.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Template\moc_CoaxialWaveguideTransitionFactory.cpp">
+      <Filter>Generated Files\Template</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CoaxialWaveguideTransitionFactory.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="CoaxialWaveguideTransitionGlobal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -95,6 +106,9 @@
     </CustomBuild>
     <CustomBuild Include="..\AbstractDevices\AbstractFactory.h">
       <Filter>Header Files\AbstractDevice</Filter>
+    </CustomBuild>
+    <CustomBuild Include="CoaxialWaveguideTransitionFactory.h">
+      <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
 </Project>

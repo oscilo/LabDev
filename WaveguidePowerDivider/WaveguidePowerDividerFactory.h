@@ -8,6 +8,7 @@
 #include "WaveguidePowerDivider.h"
 
 class WAVEGUIDEPOWERDIVIDER_EXPORT WaveguidePowerDividerFactory : public AbstractFactory {
+	Q_OBJECT
 	Q_INTERFACES(AbstractFactory)
 	Q_PLUGIN_METADATA(IID "AbstractFactory")
 

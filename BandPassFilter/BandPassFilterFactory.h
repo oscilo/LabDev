@@ -8,6 +8,7 @@
 #include "BandPassFilter.h"
 
 class BANDPASSFILTER_EXPORT BandPassFilterFactory : public AbstractFactory {
+	Q_OBJECT
 	Q_INTERFACES(AbstractFactory)
 	Q_PLUGIN_METADATA(IID "AbstractFactory")
 

@@ -8,6 +8,7 @@
 #include "CoaxialWaveguideTransition.h"
 
 class COAXIALWAVEGUIDETRANSITION_EXPORT CoaxialWaveguideTransitionFactory : public AbstractFactory {
+	Q_OBJECT
 	Q_INTERFACES(AbstractFactory)
 	Q_PLUGIN_METADATA(IID "AbstractFactory")
 

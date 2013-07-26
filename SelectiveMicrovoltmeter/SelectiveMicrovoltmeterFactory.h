@@ -8,6 +8,7 @@
 #include "SelectiveMicrovoltmeter.h"
 
 class SELECTIVEMICROVOLTMETER_EXPORT SelectiveMicrovoltmeterFactory : public AbstractFactory {
+	Q_OBJECT
 	Q_INTERFACES(AbstractFactory)
 	Q_PLUGIN_METADATA(IID "AbstractFactory")
 

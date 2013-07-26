@@ -36,6 +36,11 @@
       <Extensions>cpp;moc</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
+    <Filter Include="Generated Files\Template">
+      <UniqueIdentifier>{cbb9e8e8-9d77-423a-aa56-733c821111ac}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MicrostripResonator.cpp">
@@ -68,15 +73,21 @@
     <ClCompile Include="GeneratedFiles\Debug\moc_MicrostripResonator.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_MicrostripResonatorFactory.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_MicrostripResonatorFactory.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Template\moc_MicrostripResonatorFactory.cpp">
+      <Filter>Generated Files\Template</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Function.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="globals.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MicrostripResonatorFactory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MicrostripResonatorGlobal.h">
@@ -95,6 +106,9 @@
     </CustomBuild>
     <CustomBuild Include="..\AbstractDevices\AbstractFactory.h">
       <Filter>Header Files\AbstractDevice</Filter>
+    </CustomBuild>
+    <CustomBuild Include="MicrostripResonatorFactory.h">
+      <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
 </Project>

@@ -8,6 +8,7 @@
 #include "HighFrequencySignalsGenerator.h"
 
 class HIGHFREQUENCYSIGNALSGENERATOR_EXPORT HighFrequencySignalsGeneratorFactory : public AbstractFactory {
+	Q_OBJECT
 	Q_INTERFACES(AbstractFactory)
 	Q_PLUGIN_METADATA(IID "AbstractFactory")
 
