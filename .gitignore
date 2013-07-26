@@ -9,3 +9,4 @@ LaboratoryDevicesSetup.exe
 Temp/
 *.sdf
 *.opensdf
+ipch/
