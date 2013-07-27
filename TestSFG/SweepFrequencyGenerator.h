@@ -20,6 +20,7 @@ public:
 
 	QString getDeviceName();
 	void initProperties();
+	QString getDeviceIDName();
 
 public slots:
 	void set_new_fst(int new_val);

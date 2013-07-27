@@ -16,6 +16,7 @@ public:
 	~WaveguideTBridge();
 
 	QString getDeviceName();
+	QString getDeviceIDName();
 
 private:
 	void paintEvent(QPaintEvent *event);

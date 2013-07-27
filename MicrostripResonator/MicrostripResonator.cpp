@@ -83,6 +83,9 @@ MicrostripResonator::MicrostripResonator(QWidget *parent, Qt::WindowFlags flags)
 QString MicrostripResonator::getDeviceName() {
 	return RUS("Микрополосковый резонатор");
 }
+QString MicrostripResonator::getDeviceIDName() {
+	return "MicrostripResonator";
+}
 void MicrostripResonator::SlidersUpdate() {
 	int sValue = sSlider->value();
 	int lValue = lSlider->value();

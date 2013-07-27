@@ -21,6 +21,7 @@ public:
 	
 	QString getDeviceName();
 	void initProperties();
+	QString getDeviceIDName();
 
 signals:
 	void mark_h_changed(int new_val);

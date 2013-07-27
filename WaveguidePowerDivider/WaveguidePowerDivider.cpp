@@ -91,6 +91,9 @@ WaveguidePowerDivider::WaveguidePowerDivider(QWidget *parent, Qt::WindowFlags fl
 QString WaveguidePowerDivider::getDeviceName() {
 	return RUS("Делитель мощности");
 }
+QString WaveguidePowerDivider::getDeviceIDName() {
+	return "WaveguidePowerDivider";
+}
 void WaveguidePowerDivider::SlidersUpdate() {
 	int hValue = hSlider->value();
 	int rValue = rSlider->value();

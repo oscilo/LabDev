@@ -16,6 +16,9 @@ WaveguideTBridge::~WaveguideTBridge() {
 QString WaveguideTBridge::getDeviceName() {
 	return RUS("Волноводный Т-мост");
 }
+QString WaveguideTBridge::getDeviceIDName() {
+	return "WaveguideTBridge";
+}
 void WaveguideTBridge::paintEvent(QPaintEvent *event) {
 	QSize neededSize = back->size();
 	neededSize.scale(this->size(), Qt::KeepAspectRatio);

@@ -84,6 +84,9 @@ HighFrequencySignalsGenerator::~HighFrequencySignalsGenerator() {
 QString HighFrequencySignalsGenerator::getDeviceName() {
 	return RUS("Генератор сигналов высокочастотный Г4-109");
 }
+QString HighFrequencySignalsGenerator::getDeviceIDName() {
+	return "HighFrequencySignalsGenerator";
+}
 AbstractDevice::DeviceType HighFrequencySignalsGenerator::getDeviceType() {
 	return DeviceType::DT_HFSG;
 }

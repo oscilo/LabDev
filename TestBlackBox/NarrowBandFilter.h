@@ -14,6 +14,7 @@ class NarrowBandFilter : public AbstractBlackBox
 public:
 	NarrowBandFilter(QWidget *parent = 0, Qt::WindowFlags flags = 0);
 	QString getDeviceName();
+	QString getDeviceIDName();
 
 public slots:
 	//void set_new_k(int new_val);

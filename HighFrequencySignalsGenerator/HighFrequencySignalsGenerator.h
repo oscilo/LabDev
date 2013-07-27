@@ -20,6 +20,7 @@ public:
 
 	QString getDeviceName();
 	DeviceType getDeviceType();
+	QString getDeviceIDName();
 
 signals:
 	void SetFrequency(float);

@@ -104,6 +104,9 @@ BandPassFilter::BandPassFilter(QWidget *parent, Qt::WindowFlags flags) :
 QString BandPassFilter::getDeviceName() {
 	return RUS("Полосно-пропускающий фильтр");
 }
+QString BandPassFilter::getDeviceIDName() {
+	return "BandPassFilter";
+}
 void BandPassFilter::SlidersUpdate() {
 	int h1Value = h1Slider->value();
 	int h2Value = h2Slider->value();

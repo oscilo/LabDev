@@ -17,6 +17,7 @@ public:
 
 	QString getDeviceName();
 	DeviceType getDeviceType();
+	QString getDeviceIDName();
 
 private:
 	void paintEvent(QPaintEvent *event);

@@ -7,8 +7,17 @@
 #include <QMap>
 #include <QUuid>
 
+#include <QSettings>
+#include <QKeyEvent>
+#include <QFileInfo>
+#include <QDesktopServices>
+
 #include <DeviceException.h>
 #include <AbstractFunc.h>
+
+#define SETTINGS_FILENAME			"settings.ini"
+#define SETTINGS_HELP_FILES_GROUP	"HelpFilesGroup"
+#define INVALID_FIELD				"---invalid---"
 
 class AbstractDevice : public QWidget
 {
@@ -41,6 +50,7 @@ public:
 
 	virtual DeviceType getDeviceType() = 0;
 	virtual QString getDeviceName() = 0;
+	virtual QString getDeviceIDName() = 0;
 	virtual void initProperties() {}
 	QUuid getUuid() {
 		return uuid;
@@ -71,6 +81,29 @@ public:
 		}
 
 		ret.removeDuplicates();
+
+		return ret;
+	}
+
+	bool eventFilter(QObject *watched, QEvent *e) {
+		bool ret = false;
+
+		if(e->type() == QEvent::KeyPress) {
+			QKeyEvent *keyEvent = static_cast<QKeyEvent *>(e);
+			if (keyEvent->key() == Qt::Key_F1 || keyEvent->key() == Qt::Key_Help) {
+				QSettings settings(SETTINGS_FILENAME, QSettings::IniFormat);
+				settings.beginGroup(SETTINGS_HELP_FILES_GROUP);
+				QString value = settings.value(this->getDeviceIDName(), INVALID_FIELD).toString();
+				settings.setValue(this->getDeviceIDName(), INVALID_FIELD);
+
+				if(value != INVALID_FIELD) {
+					QFileInfo fileInfo(value);
+					QDesktopServices::openUrl("file:///" + fileInfo.absoluteFilePath());
+				}
+
+				ret = true;
+			}
+		}
 
 		return ret;
 	}

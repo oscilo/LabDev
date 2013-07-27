@@ -82,6 +82,9 @@ QString ReductionIndicator::getDeviceName()
 {
 	return QString::fromLocal8Bit("Индикатор КСВН и ослабления Я2Р-67");
 }
+QString ReductionIndicator::getDeviceIDName() {
+	return "ReductionIndicator";
+}
 void ReductionIndicator::paintEvent(QPaintEvent *event)
 {
 	QSize neededSize = back->size();

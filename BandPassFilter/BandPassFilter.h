@@ -35,6 +35,7 @@ class BandPassFilter : public AbstractBlackBox
 public:
 	BandPassFilter(QWidget *parent = 0, Qt::WindowFlags flags = 0);
 	QString getDeviceName();
+	QString getDeviceIDName();
 
 private slots:
 	void SlidersUpdate();

@@ -103,6 +103,9 @@ QString SweepFrequencyGenerator::getDeviceName()
 {
 	return QString::fromLocal8Bit("√енератор качающейс€ частоты 61 (8.15 - 12.05 √√ц)");
 }
+QString SweepFrequencyGenerator::getDeviceIDName() {
+	return "SweepFrequencyGenerator";
+}
 void SweepFrequencyGenerator::resizeEvent(QResizeEvent *event)
 {
 	QSize curSize = back->size();

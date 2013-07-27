@@ -98,6 +98,9 @@ CoaxialWaveguideTransition::CoaxialWaveguideTransition(QWidget *parent, Qt::Wind
 QString CoaxialWaveguideTransition::getDeviceName() {
 	return RUS("Коаксиально-волноводный переход");
 }
+QString CoaxialWaveguideTransition::getDeviceIDName() {
+	return "CoaxialWaveguideTransition";
+}
 void CoaxialWaveguideTransition::SlidersUpdate() {
 	int sValue = sSlider->value();
 	int lValue = lSlider->value();

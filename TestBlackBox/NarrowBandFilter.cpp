@@ -80,6 +80,9 @@ QString NarrowBandFilter::getDeviceName()
 {
 	return QString::fromLocal8Bit("Фильтр");
 }
+QString NarrowBandFilter::getDeviceIDName() {
+	return "NarrowBandFilter";
+}
 /*
 void NarrowBandFilter::set_new_k(int new_val)
 {
