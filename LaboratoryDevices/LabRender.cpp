@@ -92,22 +92,12 @@ bool LabRender::IsLabFacilityOpen()
 }
 void LabRender::ShowLabDescription()
 {
-	/*
 	QString file = labMerger->GetDescriptionFileName(lfac);
 	QFileInfo fi(file);
 
-	QString filePath = fi.canonicalFilePath();
-	QByteArray dataArray( (filePath.size() + 1) * 2, 0x00);
-	wchar_t *dataStr = (wchar_t*)dataArray.data();
-	filePath.toWCharArray(dataStr);
+	QString filePath = "file:///" + fi.canonicalFilePath();
 
-	CoInitialize(NULL);
-	HINSTANCE ret = ShellExecute(GetForegroundWindow(), L"Open", dataStr, NULL, NULL, SW_SHOWNORMAL);
-	CoUninitialize();
-
-	if(ret <= (HINSTANCE)32)
-		QMessageBox::critical(this, RUS("Ошибка"), RUS("Ошибка открытия описания лабораторной работы!"));
-	//*/
+	QDesktopServices::openUrl(filePath);
 }
 void LabRender::CloseLabFacility()
 {

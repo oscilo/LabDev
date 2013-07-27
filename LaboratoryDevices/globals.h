@@ -37,6 +37,7 @@
 
 #include <QSplashScreen>
 
+#include <QDesktopServices>
 #include <QThread>
 #include <QMutex>
 #include <QMutexLocker>
