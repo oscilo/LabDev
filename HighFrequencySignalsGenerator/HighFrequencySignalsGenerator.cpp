@@ -82,7 +82,7 @@ HighFrequencySignalsGenerator::~HighFrequencySignalsGenerator() {
 	delete disk;
 }
 QString HighFrequencySignalsGenerator::getDeviceName() {
-	return RUS("Генератор сигналов высокочастотный Г4-109");
+	return RUS("High Frequency Signals Generator");		//DS
 }
 QString HighFrequencySignalsGenerator::getDeviceIDName() {
 	return "HighFrequencySignalsGenerator";

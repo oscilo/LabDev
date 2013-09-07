@@ -3,10 +3,6 @@
 
 #include "globals.h"
 
-#include <AbstractSFGenerator.h>
-#include <AbstractIndicator.h>
-#include <AbstractBlackBox.h>
-
 #include "LabMerger.h"
 #include "LoadingDllScreen.h"
 
@@ -33,6 +29,9 @@ private slots:
 	void CreateDeviceInstanceSlot(DeviceInstance*, AbstractFactory*, QMutex*, QWaitCondition*);
 	void ShowMessageBox(const QString&, const QString&, QMessageBox::Icon);
 
+	//DS
+	void ShowAboutSlot();
+
 private:
 	void CreateMenus();
 	void CreateFooterDevicesAction();
@@ -48,15 +47,13 @@ private:
 	QAction *descrAction;
 	QAction *closeAction;
 
+	//DS
+	QAction *aboutAction;
+	
 	QAction *tileAction;
 	QAction *cascadeAction;
 	QAction *tabbedAction;
-
-	AbstractSFGenerator *sfg;
-	AbstractIndicator *ind;
-	AbstractDrawArea *draw;
-	AbstractBlackBox *black;
-
+	
 	LabFacility lfac;
 	LabMerger *labMerger;
 	LoadingDllScreen *splash;

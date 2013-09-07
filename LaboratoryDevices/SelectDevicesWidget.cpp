@@ -3,7 +3,7 @@
 SelectDevicesWidget::SelectDevicesWidget(QWidget *parent) :
 	QGroupBox(parent)
 {
-	this->setTitle(RUS("Выбор устройств"));
+	this->setTitle(RUS("Select Device"));			//DS
 }
 SelectDevicesWidget::~SelectDevicesWidget() {
 }

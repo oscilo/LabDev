@@ -89,7 +89,7 @@ WaveguidePowerDivider::WaveguidePowerDivider(QWidget *parent, Qt::WindowFlags fl
 	((PaintingWidget*)paintingWidget)->SetPicture(H_START, R_START);
 }
 QString WaveguidePowerDivider::getDeviceName() {
-	return RUS("Делитель мощности");
+	return RUS("Waveguide Power Divider");		//DS
 }
 QString WaveguidePowerDivider::getDeviceIDName() {
 	return "WaveguidePowerDivider";

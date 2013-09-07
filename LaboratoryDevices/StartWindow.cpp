@@ -15,19 +15,19 @@ StartWindow::StartWindow(QWidget *parent, Qt::WindowFlags flags) :
 
 	compBut->setIcon(QIcon("./Resources/user-admin.png"));
 	compBut->setIconSize(QSize(128, 128));
-	compBut->setToolTip(RUS("Администраторский вход"));
+	compBut->setToolTip(RUS("Administration"));		//DS Администраторский вход
 	compBut->setAutoRaise(true);
 	compBut->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 	
 	rendBut->setIcon(QPixmap("./Resources/users.png"));
 	rendBut->setIconSize(QSize(128, 128));
-	rendBut->setToolTip(RUS("Обычный вход"));
+	rendBut->setToolTip(RUS("User In"));		//DS Обычный вход
 	rendBut->setAutoRaise(true);
 	rendBut->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 	
 	quitBut->setIcon(QPixmap("./Resources/right.png"));
 	quitBut->setIconSize(QSize(128, 128));
-	quitBut->setToolTip(RUS("Выход"));
+	quitBut->setToolTip(RUS("Exit"));		//DS
 	quitBut->setAutoRaise(true);
 	quitBut->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 

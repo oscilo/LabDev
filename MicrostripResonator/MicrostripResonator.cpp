@@ -81,7 +81,7 @@ MicrostripResonator::MicrostripResonator(QWidget *parent, Qt::WindowFlags flags)
 	((PaintingWidget*)paintingWidget)->SetPicture(S_START, L_START);
 }
 QString MicrostripResonator::getDeviceName() {
-	return RUS("Микрополосковый резонатор");
+	return RUS("Microstrip Resonator");		//DS
 }
 QString MicrostripResonator::getDeviceIDName() {
 	return "MicrostripResonator";

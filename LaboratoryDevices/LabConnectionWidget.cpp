@@ -11,7 +11,7 @@ LabConnectionWidget::LabConnectionWidget(QWidget *parent) :
 	actionButton->setIcon(QIcon("./Resources/Add.png"));
 	connect(actionButton, SIGNAL(clicked()), this, SIGNAL(CreateNewConnection()));
 
-	QLabel *lbl = new QLabel(RUS("Добавить новое соединение"), this);
+	QLabel *lbl = new QLabel(RUS("Add New Connection"), this);		//DS Добавить новое соединение
 	lbl->setAlignment(Qt::AlignCenter);
 	
 	lay->addWidget(actionButton);
@@ -36,11 +36,11 @@ LabConnectionWidget::LabConnectionWidget(QList<DeviceInfo> existingDevices, QWid
 	receiverBox->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLengthWithIcon);
 	emitterBox->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLengthWithIcon);
 	
-	QLabel *connTypeLabel =		new QLabel(RUS("Тип соединения"), this);
-	QLabel *emitterLabel =		new QLabel(RUS("Источник"), this);
-	QLabel *receiverLabel =		new QLabel(RUS("Приемник"), this);
-	QLabel *deviceLabel =		new QLabel(RUS("Устройство"), this);
-	signalsKeyLabel =			new QLabel(RUS("Ключ сигнала"), this);
+	QLabel *connTypeLabel =		new QLabel(RUS("Connection type"), this);		//DS Тип соединения
+	QLabel *emitterLabel =		new QLabel(RUS("Source"), this);				//DS Источник
+	QLabel *receiverLabel =		new QLabel(RUS("Receiver"), this);				//DS Приемник
+	QLabel *deviceLabel =		new QLabel(RUS("Device"), this);				//DS Устройство equipment
+	signalsKeyLabel =			new QLabel(RUS("Key	signal"), this);			//DS Ключ сигнала
 
 	connTypeLabel->setAlignment(Qt::AlignCenter);
 	emitterLabel->setAlignment(Qt::AlignCenter);
@@ -68,8 +68,8 @@ LabConnectionWidget::LabConnectionWidget(QList<DeviceInfo> existingDevices, QWid
 	connect(receiverBox, SIGNAL(currentIndexChanged(int)), this, SLOT(ReceiverChanged(int)));
 	connect(emitterBox,	 SIGNAL(currentIndexChanged(int)), this, SLOT(EmitterChanged(int)));
 
-	typeBox->addItem(RUS("Обычное"),			AbstractDevice::PT_COMMON);
-	typeBox->addItem(RUS("ГКЧ - Индикатор"),	AbstractDevice::PT_SFG_INDIC);
+	typeBox->addItem(RUS("Regular"),			AbstractDevice::PT_COMMON);	//DS
+	typeBox->addItem(RUS("SFG - VSWR"),	AbstractDevice::PT_SFG_INDIC);		//DS ГКЧ - Индикатор
 }
 LabConnectionWidget::~LabConnectionWidget() {
 }

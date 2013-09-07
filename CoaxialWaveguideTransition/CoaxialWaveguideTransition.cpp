@@ -96,7 +96,7 @@ CoaxialWaveguideTransition::CoaxialWaveguideTransition(QWidget *parent, Qt::Wind
 	((PaintingWidget*)paintingWidget)->SetPicture(S_START, L_START);
 }
 QString CoaxialWaveguideTransition::getDeviceName() {
-	return RUS("Коаксиально-волноводный переход");
+	return RUS("Coaxial - Waveguide Transition");		//DS
 }
 QString CoaxialWaveguideTransition::getDeviceIDName() {
 	return "CoaxialWaveguideTransition";

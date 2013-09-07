@@ -7,7 +7,7 @@ LabComposer::LabComposer(QWidget *parent, Qt::WindowFlags flags) :
 	QMainWindow(parent, flags), labFacArea(0)
 {
 	setMinimumSize(600, 600);
-	setWindowTitle(RUS("Управление лабораторными работами"));
+	setWindowTitle(RUS("Laboratory Work Management"));		//DS Управление лабораторными работами
 
 	QWidget *centralWidget = new QWidget(this);
 	centralLayout = new QVBoxLayout(centralWidget);
@@ -82,14 +82,14 @@ void LabComposer::CreateTopWidget() {
 	descrPath = new QLineEdit(this);
 	descrPath->setReadOnly(true);
 
-	QPushButton *selectDescr = new QPushButton(RUS("Открыть"), this);
+	QPushButton *selectDescr = new QPushButton(RUS("Open"), this);		//DS 
 	connect(selectDescr, SIGNAL(clicked()), this, SLOT(SelectManual()));
 
 	selectDevices = new SelectDevicesWidget(this);
 
-	topLayout->addWidget(new QLabel(RUS("Название:"), this),	0, 0);
+	topLayout->addWidget(new QLabel(RUS("Name:"), this),	0, 0);		//DS
 	topLayout->addWidget(labName,								0, 1, 1, 2);
-	topLayout->addWidget(new QLabel(RUS("Описание:"), this),	1, 0);
+	topLayout->addWidget(new QLabel(RUS("Read me:"), this),	1, 0);	//DS
 	topLayout->addWidget(descrPath,								1, 1);
 	topLayout->addWidget(selectDescr,							1, 2);
 	topLayout->addWidget(selectDevices,							2, 0, 1, 3);
@@ -101,9 +101,9 @@ void LabComposer::CreateFooterWidget() {
 	QHBoxLayout *footerLayout = new QHBoxLayout(footerWidget);
 	footerWidget->hide();
 	
-	QPushButton *deleteButton = new QPushButton(RUS("Удалить работу"), this);
-	QPushButton *saveButton = new QPushButton(RUS("Сохранить"), this);
-	QPushButton *backButton = new QPushButton(RUS("Назад"), this);
+	QPushButton *deleteButton = new QPushButton(RUS("Delete"), this);	//DS
+	QPushButton *saveButton = new QPushButton(RUS("Save"), this);			//DS
+	QPushButton *backButton = new QPushButton(RUS("Back"), this);				//DS
 	
 	connect(deleteButton, SIGNAL(clicked()), this, SLOT(DeleteLab()));
 	connect(saveButton, SIGNAL(clicked()), this, SLOT(SaveLab()));
@@ -131,10 +131,10 @@ void LabComposer::LabFacilitySelected(QWidget *w) {
 
 		QMessageBox msgBox;
 		
-		msgBox.setWindowTitle(RUS("Очистка"));
-		msgBox.setText(RUS("Вы действительно хотите удалить ВСЕ записи из базы данных?"));
-		QPushButton *yesButton = msgBox.addButton(RUS("Да"), QMessageBox::YesRole);
-		msgBox.addButton(RUS("Нет"), QMessageBox::NoRole);
+		msgBox.setWindowTitle(RUS("Refinement"));			//DS
+		msgBox.setText(RUS("Clear Base?"));	//DS Вы действительно хотите удалить ВСЕ записи из базы данных?
+		QPushButton *yesButton = msgBox.addButton(RUS("Yes"), QMessageBox::YesRole);		//DS
+		msgBox.addButton(RUS("No"), QMessageBox::NoRole);			//DS
 		msgBox.setIcon(QMessageBox::Question);
 		msgBox.setMinimumWidth(400);
 
@@ -215,11 +215,11 @@ void LabComposer::FillSelectLabArea() {
 		CreateLabFacilityButton(lf);
 	}
 
-	CreateLabFacilityButton(LabFacility(NEW_FACILITY_BUTTON_ID, RUS("Новая работа")));
+	CreateLabFacilityButton(LabFacility(NEW_FACILITY_BUTTON_ID, RUS("New Laboratory Work")));	//DS
 
 	selectLabLayout->addStretch();
 
-	CreateLabFacilityButton(LabFacility(ERASE_DATA_BASE_BUTTON_ID, RUS("Очистить базу данных")));
+	CreateLabFacilityButton(LabFacility(ERASE_DATA_BASE_BUTTON_ID, RUS("Clear Base")));	//DS
 }
 void LabComposer::ShowLabList() {
 	if(labFacArea)
@@ -323,25 +323,25 @@ void LabComposer::SaveLab() {
 	DBRecordList devicesConnections = labFacArea->GetDevicesConnections();
 
 	if(labNameStr == "") {
-		ShowMessageBox(RUS("Создание"), RUS("Не указано название работы!"), QMessageBox::Critical);
+		ShowMessageBox(RUS("Create"), RUS("No Name!"), QMessageBox::Critical);	//DS
 		return;
 	}
 	if(manualPathStr == "") {
-		ShowMessageBox(RUS("Создание"), RUS("Не выбрано описание работы!"), QMessageBox::Critical);
+		ShowMessageBox(RUS("Create"), RUS("No Description!"), QMessageBox::Critical);	//DS
 		return;
 	}
 	if(!devicesInOrder.size()) {
-		ShowMessageBox(RUS("Создание"), RUS("Не выбрано ни одного устройства!"), QMessageBox::Critical);
+		ShowMessageBox(RUS("Create"), RUS("No Device Selected!"), QMessageBox::Critical);	//DS
 		return;
 	}
 	if(!devicesConnections.size()) {
-		ShowMessageBox(RUS("Создание"), RUS("Нет ни одного соединения между устройствами!"), QMessageBox::Critical);
+		ShowMessageBox(RUS("Create"), RUS("No Connections!"), QMessageBox::Critical);	//DS
 		return;
 	}
 
 	labMerger->CreateNewLabFacility(labNameStr, manualPathStr, devicesInOrder, devicesConnections);
 
-	ShowMessageBox(RUS("Создание"), RUS("Лабораторная работа \"%1\" создана.").arg(labNameStr), QMessageBox::Information);
+	ShowMessageBox(RUS("Create"), RUS("Laboratory Work \"%1\" Created.").arg(labNameStr), QMessageBox::Information);	//DS
 	MoveBack();
 }
 void LabComposer::DeleteLab() {
@@ -350,10 +350,10 @@ void LabComposer::DeleteLab() {
 
 	QMessageBox msgBox;
 	
-	msgBox.setWindowTitle(RUS("Удаление"));
-	msgBox.setText(RUS("Вы действительно хотите удалить лабораторную работу\n\"%1\"").arg(lfac.l_name));
-	QPushButton *yesButton = msgBox.addButton(RUS("Да"), QMessageBox::YesRole);
-	msgBox.addButton(RUS("Нет"), QMessageBox::NoRole);
+	msgBox.setWindowTitle(RUS("Delete"));
+	msgBox.setText(RUS("Delete Laboratory Work\n\"%1\"").arg(lfac.l_name));	//DS
+	QPushButton *yesButton = msgBox.addButton(RUS("Yes"), QMessageBox::YesRole);	//DS
+	msgBox.addButton(RUS("No"), QMessageBox::NoRole);	//DS
 	msgBox.setIcon(QMessageBox::Question);
 	msgBox.setMinimumWidth(400);
 
@@ -364,16 +364,16 @@ void LabComposer::DeleteLab() {
 
 	labMerger->DeleteLabFacility(lfac);
 
-	ShowMessageBox(RUS("Удаление"), RUS("Лабораторная работа \"%1\" удалена.").arg(lfac.l_name), QMessageBox::Information);
+	ShowMessageBox(RUS("Delete"), RUS("Laboratory Work \"%1\" Deleted.").arg(lfac.l_name), QMessageBox::Information);
 	MoveBack();
 }
 void LabComposer::SelectManual() {
 	QDir manualDir(QDir::currentPath() + "/../Documents/");
 	
 	QString mName = QFileDialog::getOpenFileName(	this,
-													RUS("Выберите описание лабораторной работы"),
+													RUS("Select Laboratory Work Description"),
 													manualDir.canonicalPath(),
-													RUS("Документы (*.doc *.docx *.pdf *.djvu)") );
+													RUS("Documents (*.doc *.docx *.pdf *.djvu)") );		//DS
 
 	descrPath->setText(mName);
 }

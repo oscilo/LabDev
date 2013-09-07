@@ -56,9 +56,9 @@ NarrowBandFilter::NarrowBandFilter(QWidget *parent, Qt::WindowFlags flags) :
 	QSlider *sliderFront = new QSlider(Qt::Vertical, this);
 	QSlider *sliderBottom = new QSlider(Qt::Vertical, this);
 	QLabel *lTopFront = new QLabel(RUS("h1"), this);
-	QLabel *lNtopFront = new QLabel(RUS("8 לל"), this);
+	QLabel *lNtopFront = new QLabel(RUS("8 mm"), this);
 	QLabel *lTopBottom = new QLabel(RUS("h2"), this);
-	QLabel *lNtopBottom = new QLabel(RUS("-1 לל"), this);
+	QLabel *lNtopBottom = new QLabel(RUS("-1 mm"), this);
 
 	PaintingWidget *w = new PaintingWidget(this);
 
@@ -78,7 +78,7 @@ NarrowBandFilter::NarrowBandFilter(QWidget *parent, Qt::WindowFlags flags) :
 }
 QString NarrowBandFilter::getDeviceName()
 {
-	return QString::fromLocal8Bit("Ôטכüענ");
+	return QString::fromLocal8Bit("Filter");
 }
 QString NarrowBandFilter::getDeviceIDName() {
 	return "NarrowBandFilter";

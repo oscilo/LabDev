@@ -128,7 +128,7 @@ void LabMerger::SetDeviceInstanses(QVector<DeviceInstance> &devices)
 		DeviceInstance &device(devices[i]);
 		QString &devDllName(devMap[device.d_id]);
 
-		emit ShowLoadMessage(RUS("Загрузка %1...").arg(devDllName));
+		emit ShowLoadMessage(RUS("Loading %1...").arg(devDllName));		//DS
 		
 		QPluginLoader *pLoader = new QPluginLoader(devDllName, this);
 		
@@ -234,7 +234,7 @@ void LabMerger::RequestDevicesSlot(const LabFacility lfac) {
 		emit SendDevicesSignal(ret);
 	}
 	catch(DeviceException &e) {
-		emit ShowMessageBox(RUS("Ошибка!"), e.getMess(), QMessageBox::Critical);
+		emit ShowMessageBox(RUS("Error!"), e.getMess(), QMessageBox::Critical);		//DS
 	}
 }
 void LabMerger::RequestAllDevicesSlot() {
@@ -250,7 +250,7 @@ void LabMerger::RequestAllDevicesSlot() {
 		emit SendDevicesSignal(devices);
 	}
 	catch(DeviceException &e) {
-		emit ShowMessageBox(RUS("Ошибка!"), e.getMess(), QMessageBox::Critical);
+		emit ShowMessageBox(RUS("Error!"), e.getMess(), QMessageBox::Critical);		//DS
 	}
 }
 void LabMerger::RemoveDevices()

@@ -101,7 +101,7 @@ void SweepFrequencyGenerator::initProperties()
 }
 QString SweepFrequencyGenerator::getDeviceName()
 {
-	return QString::fromLocal8Bit("√енератор качающейс€ частоты 61 (8.15 - 12.05 √√ц)");
+	return QString::fromLocal8Bit("Sweep Frequency Generator");	//DS √енератор качающейс€ частоты 61 (8.15 - 12.05 √√ц)
 }
 QString SweepFrequencyGenerator::getDeviceIDName() {
 	return "SweepFrequencyGenerator";

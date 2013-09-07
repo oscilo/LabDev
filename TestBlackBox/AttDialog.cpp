@@ -9,21 +9,21 @@ AttDialog::AttDialog(QWidget *parent, Qt::WindowFlags f) :
 	this->setMinimumHeight(pix->height());
 
 	QGridLayout *grTop = new QGridLayout(this);
-	QGroupBox *grBox = new QGroupBox(RUS("Параметры"));
+	QGroupBox *grBox = new QGroupBox(RUS("Parameters"));			//DS
 
 	QGridLayout *gr = new QGridLayout(grBox);
 	
-	tType = new QRadioButton(RUS("Т-образная"));
-	pType = new QRadioButton(RUS("П-образная"));
-	QLabel *lR0 = new QLabel(RUS("R0, Ом"));
+	tType = new QRadioButton(RUS("Т-shape"));			//DS
+	pType = new QRadioButton(RUS("П-shape"));			//DS
+	QLabel *lR0 = new QLabel(RUS("R0, Ohm"));
 	leR0 = new QLineEdit("50");
-	QLabel *llR1 = new QLabel(RUS("R1, Ом"));
+	QLabel *llR1 = new QLabel(RUS("R1, Ohm"));
 	lR1 = new QLabel(RUS("-"));
-	QLabel *llR2 = new QLabel(RUS("R2, Ом"));
+	QLabel *llR2 = new QLabel(RUS("R2, Ohm"));
 	lR2 = new QLabel(RUS("-"));
-	lAlpha = new QLabel(RUS("Затухание: 0 дБ"));
+	lAlpha = new QLabel(RUS("Attenuation: 0 dB"));
 	sAlpha = new QSlider(Qt::Horizontal);
-	QLabel *lN = new QLabel(RUS("Количество звеньев"));
+	QLabel *lN = new QLabel(RUS("Number of Sections"));
 	cbN = new QComboBox;
 
 	tType->setChecked(true);
@@ -46,7 +46,7 @@ AttDialog::AttDialog(QWidget *parent, Qt::WindowFlags f) :
 	gr->addWidget(lAlpha,	5, 1);
 	gr->addWidget(sAlpha,	5, 2);
 	
-	QPushButton *sint = new QPushButton(RUS("Расчитать"));
+	QPushButton *sint = new QPushButton(RUS("Calculate"));
 	
 	grTop->addWidget(grBox, 0, 1, 1, 2);
 	grTop->addWidget(sint,	1, 2);

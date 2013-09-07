@@ -15,7 +15,7 @@ SelectiveMicrovoltmeter::~SelectiveMicrovoltmeter() {
 	delete back;
 }
 QString SelectiveMicrovoltmeter::getDeviceName() {
-	return RUS("Микровольтметр селективный В6-9");
+	return RUS("Selective Microvoltmeter");			//DS
 }
 QString SelectiveMicrovoltmeter::getDeviceIDName() {
 	return "SelectiveMicrovoltmeter";

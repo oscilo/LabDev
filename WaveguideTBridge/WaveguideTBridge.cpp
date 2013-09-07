@@ -14,7 +14,7 @@ WaveguideTBridge::~WaveguideTBridge() {
 	delete back;
 }
 QString WaveguideTBridge::getDeviceName() {
-	return RUS("Волноводный Т-мост");
+	return RUS("Waveguide T-Bridge");		//DS
 }
 QString WaveguideTBridge::getDeviceIDName() {
 	return "WaveguideTBridge";

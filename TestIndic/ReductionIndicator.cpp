@@ -80,7 +80,7 @@ void ReductionIndicator::initProperties()
 }
 QString ReductionIndicator::getDeviceName()
 {
-	return QString::fromLocal8Bit("Индикатор КСВН и ослабления Я2Р-67");
+	return QString::fromLocal8Bit("VSWR / Attenuation Scope");		//DS Индикатор КСВН и ослабления Я2Р-67
 }
 QString ReductionIndicator::getDeviceIDName() {
 	return "ReductionIndicator";

@@ -22,6 +22,17 @@ Section "Core files (required)"
   File "$%QTDIR%\bin\Qt5Sql.dll"
   File "$%QTDIR%\bin\Qt5Svg.dll"
   File "$%QTDIR%\bin\Qt5Xml.dll"
+  File "$%QTDIR%\bin\Qt5Widgets.dll"
+  File "$%QTDIR%\bin\libGLESv2.dll"
+  File "$%QTDIR%\bin\libEGL.dll"
+  File "$%QTDIR%\bin\icuuc51.dll"
+  File "$%QTDIR%\bin\icuin51.dll"
+  File "$%QTDIR%\bin\icudt51.dll"
+  
+  SetOutPath "$INSTDIR\Bin\platforms"
+  File "$%QTDIR%\plugins\platforms\qwindows.dll"
+  File "$%QTDIR%\plugins\platforms\qminimal.dll"
+  File "$%QTDIR%\plugins\platforms\qoffscreen.dll"
   
   SetOutPath "$INSTDIR\Bin\sqldrivers"
   File "$%QTDIR%\plugins\sqldrivers\qsqlite.dll"
@@ -51,6 +62,7 @@ Section "Core files (required)"
   WriteRegDWORD HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\LaboratoryDevices" "NoRepair" 1
   WriteUninstaller "uninstall.exe"
   
+  SetOutPath "$INSTDIR\Bin"
 SectionEnd
 
 ; Optional section (can be disabled by the user)

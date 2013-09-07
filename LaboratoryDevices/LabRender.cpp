@@ -8,7 +8,7 @@ LabRender::LabRender(QWidget *parent, Qt::WindowFlags flags)
 	: QMainWindow(parent, flags)
 {
 	setMinimumSize(500, 200);
-	setWindowTitle(RUS("Выбор лабораторной установки"));
+	setWindowTitle(RUS("Laboratory Workshop"));		//DS Выбор лабораторной установки
 
 	centralWidget = new QMdiArea(this);
 	centralWidget->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
@@ -46,7 +46,7 @@ LabRender::~LabRender()
 }
 void LabRender::CreateMenus()
 {
-	labFacMenu = menuBar()->addMenu(RUS("Работы"));
+	labFacMenu = menuBar()->addMenu(RUS("Work"));			//DS
 	
 	QActionGroup *labFacActions = CreateLabActions();
 	foreach(QAction *act, labFacActions->actions())
@@ -55,18 +55,50 @@ void LabRender::CreateMenus()
 	}
 	connect(labFacMenu, SIGNAL(triggered(QAction*)), this, SLOT(ChangeLabFacility(QAction*)));
 
-	devicesMenu = menuBar()->addMenu(RUS("Приборы"));
+	devicesMenu = menuBar()->addMenu(RUS("Device"));		//DS
 	devicesMenu->setDisabled(true);
 	
 	CreateFooterDevicesAction();
 
-	descrAction = menuBar()->addAction(RUS("Описание"));
+	descrAction = menuBar()->addAction(RUS("Read me"));	//DS	Описание
 	connect(descrAction, SIGNAL(triggered()), this, SLOT(ShowLabDescription()));
 	descrAction->setDisabled(true);
 
-	closeAction = menuBar()->addAction(RUS("Выход"));
+	closeAction = menuBar()->addAction(RUS("Exit"));		//DS Выход
 	connect(closeAction, SIGNAL(triggered()), this, SLOT(close()));
+
+	//DS
+	aboutAction = menuBar()->addAction(RUS("About ..."));	
+	//QAction *aboutAction = menuBar()->addAction(RUS(L"О программе"));
+	connect(aboutAction, SIGNAL(triggered()), this, SLOT(ShowAboutSlot()));
+
 }
+
+//DS
+void LabRender::ShowAboutSlot() {
+	QDialog msg;
+	msg.setWindowTitle(RUS("About Programm"));
+
+	QString message(RUS("Virtual Laboratory Workshop\n"
+						"Version 1.0 \n"
+						"\n"
+						"			© 2013 Southern Federal University\n"
+						"			E-mail: ds@sfedu.ru\n"));
+
+	QGridLayout *lay = new QGridLayout(&msg);
+	QLabel *text = new QLabel(message, &msg);
+
+	QPushButton *okBut = new QPushButton(RUS("OK"), &msg);
+	connect(okBut, SIGNAL(clicked()), &msg, SLOT(close()));
+	
+	lay->addWidget(text,	0, 0, 1, 2);
+	lay->addWidget(okBut,	2, 1);
+	lay->setColumnStretch(0, 1);
+
+	msg.exec();
+}
+
+
 QActionGroup* LabRender::CreateLabActions()
 {
 	QActionGroup *ret = new QActionGroup(this);
@@ -179,13 +211,13 @@ void LabRender::AddFooterDevicesAction()
 }
 void LabRender::CreateFooterDevicesAction()
 {
-	cascadeAction = new QAction(RUS("Каскадом"), this);
+	cascadeAction = new QAction(RUS("Cascade"), this);		//	DS
 	connect(cascadeAction, SIGNAL(triggered()), centralWidget, SLOT(cascadeSubWindows()));
 	
-	tileAction = new QAction(RUS("Плиткой"), this);
+	tileAction = new QAction(RUS("Tile"), this);			//DS
 	connect(tileAction, SIGNAL(triggered()), centralWidget, SLOT(tileSubWindows()));
 
-	tabbedAction = new QAction(RUS("Закладками"), this);
+	tabbedAction = new QAction(RUS("Laying"), this);		//DS
 	tabbedAction->setCheckable(true);
 	tabbedAction->setChecked(false);
 	connect(tabbedAction, SIGNAL(triggered(bool)), this, SLOT(SetTabbedSubWindows(bool)));
@@ -230,7 +262,7 @@ void LabRender::closeEvent(QCloseEvent *event) {
 	if(splash->isVisible())
 		event->ignore();
 	else {
-		int ret = QMessageBox::question(this, RUS("Выход"), RUS("Вы точно хотите выйти?"), QMessageBox::Yes, QMessageBox::No);
+		int ret = QMessageBox::question(this, RUS("Exit"), RUS("Exit ?"), QMessageBox::Yes, QMessageBox::No);
 		(QMessageBox::Yes == ret) ? event->accept() : event->ignore();
 	}
 }

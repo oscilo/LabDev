@@ -102,7 +102,7 @@ BandPassFilter::BandPassFilter(QWidget *parent, Qt::WindowFlags flags) :
 	((PaintingWidget*)paintingWidget)->SetPicture(H1_START, H2_START);
 }
 QString BandPassFilter::getDeviceName() {
-	return RUS("Полосно-пропускающий фильтр");
+	return RUS("Band Pass Filter");	//DS
 }
 QString BandPassFilter::getDeviceIDName() {
 	return "BandPassFilter";
