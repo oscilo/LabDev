@@ -15,7 +15,7 @@ signals:
 	void repaintSignal();
 
 public slots:
-	void SetPicture(int s, int l);
+	void SetPicture();
 
 private:
 	void ScalePixmap();
@@ -46,11 +46,15 @@ private:
 	WaveguideSlotAntennaFunc *waveguideSlotAntennaFunc;
 
 	QWidget *paintingWidget;
-
+	
 	QSlider *sSlider;
 	QSlider *lSlider;
+	QSlider *skSlider;
+	QSlider *xSlider;
 	QLabel *sLabel;
 	QLabel *lLabel;
+	QLabel *skLabel;
+	QLabel *xLabel;
 };
 
 #endif // WAVEGUIDESLOTANTENNA_H

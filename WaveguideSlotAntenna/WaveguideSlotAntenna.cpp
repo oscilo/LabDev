@@ -2,11 +2,11 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 PaintingWidget::PaintingWidget(QWidget* parent) : QWidget(parent) {
-	pixName = "./Resources/MicrostripResonator/s 1, l 18.PNG";
+	pixName = "./Resources/WaveguideSlotAntenna/WaveguideSlotAntenna.PNG";
 
 	this->setMinimumSize(200, 200);
 }
-void PaintingWidget::SetPicture(int s, int l) {
+void PaintingWidget::SetPicture() {
 	pix = QPixmap(pixName);
 	ScalePixmap();
 }
@@ -41,11 +41,17 @@ WaveguideSlotAntenna::WaveguideSlotAntenna(QWidget *parent, Qt::WindowFlags flag
 
 	sSlider = new QSlider(Qt::Vertical, this);
 	lSlider = new QSlider(Qt::Vertical, this);
-	sLabel = new QLabel("1", this);
-	lLabel = new QLabel("18", this);
+	skSlider = new QSlider(Qt::Vertical, this);
+	xSlider = new QSlider(Qt::Vertical, this);
+	sLabel = new QLabel("21.28", this);
+	lLabel = new QLabel("11.48", this);
+	skLabel = new QLabel("14.68", this);
+	xLabel = new QLabel("3.68", this);
 
-	sSlider->setRange(10, 19);
-	lSlider->setRange(18, 25);
+	sSlider->setRange(0, 9);
+	lSlider->setRange(0, 9);
+	skSlider->setRange(0, 9);
+	xSlider->setRange(0, 9);
 
 	lay->addWidget(new QLabel("s", this),	0, 0);
 	lay->addWidget(sSlider,					1, 0);
@@ -53,13 +59,21 @@ WaveguideSlotAntenna::WaveguideSlotAntenna(QWidget *parent, Qt::WindowFlags flag
 	lay->addWidget(new QLabel("l", this),	0, 1);
 	lay->addWidget(lSlider,					1, 1);
 	lay->addWidget(lLabel,					2, 1);
-	lay->addWidget(paintingWidget,			0, 2, 3, 1);
+	lay->addWidget(new QLabel("sk", this),	0, 2);
+	lay->addWidget(skSlider,				1, 2);
+	lay->addWidget(skLabel,					2, 2);
+	lay->addWidget(new QLabel("x", this),	0, 3);
+	lay->addWidget(xSlider,					1, 3);
+	lay->addWidget(xLabel,					2, 3);
+	lay->addWidget(paintingWidget,			0, 4, 3, 1);
 
 	connect(sSlider, SIGNAL(valueChanged(int)), this, SLOT(SlidersUpdate()));
 	connect(lSlider, SIGNAL(valueChanged(int)), this, SLOT(SlidersUpdate()));
+	connect(skSlider, SIGNAL(valueChanged(int)), this, SLOT(SlidersUpdate()));
+	connect(xSlider, SIGNAL(valueChanged(int)), this, SLOT(SlidersUpdate()));
 	connect((PaintingWidget*)paintingWidget, SIGNAL(repaintSignal()), this, SIGNAL(repaintSignal()));
 
-	((PaintingWidget*)paintingWidget)->SetPicture(S_START, L_START);
+	((PaintingWidget*)paintingWidget)->SetPicture();
 }
 QString WaveguideSlotAntenna::getDeviceName() {
 	return RUS("Waveguide Slot Antenna");		//DS
@@ -68,19 +82,25 @@ QString WaveguideSlotAntenna::getDeviceIDName() {
 	return "WaveguideSlotAntenna";
 }
 void WaveguideSlotAntenna::SlidersUpdate() {
-	int sValue = sSlider->value();
-	int lValue = lSlider->value();
+	int sValue = S_START + (sSlider->value() * S_STEP);
+	int skValue = SK_START + (skSlider->value() * SK_STEP);
+	int lValue = L_START + (lSlider->value() * L_STEP);
+	int xValue = X_START + (xSlider->value() * X_STEP);
 
-	QString sStr = QString::number(sValue / 10.);
-	QString lStr = QString::number(lValue / 1);
+	QString sStr = QString::number(sValue / 100.);
+	QString lStr = QString::number(lValue / 100.);
+	QString skStr = QString::number(skValue / 100.);
+	QString xStr = QString::number(xValue / 100.);
 
 	sLabel->setText(sStr);
 	lLabel->setText(lStr);
+	skLabel->setText(skStr);
+	xLabel->setText(xStr);
 
-	((PaintingWidget*)paintingWidget)->SetPicture(sValue, lValue);
-	
 	waveguideSlotAntennaFunc->set_s(sValue);
 	waveguideSlotAntennaFunc->set_l(lValue);
+	waveguideSlotAntennaFunc->set_sk(skValue);
+	waveguideSlotAntennaFunc->set_x(xValue);
 
 	this->repaint();
 	emit repaintSignal();

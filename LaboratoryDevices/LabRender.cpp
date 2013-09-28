@@ -167,7 +167,6 @@ void LabRender::ReceiveDevicesSlot(const QVector<AbstractDevice*> &devices)
 
 		QMdiSubWindow *subWindow = centralWidget->addSubWindow(dev,	Qt::Window |
 																	Qt::WindowTitleHint |
-																	Qt::WindowContextHelpButtonHint |
 																	Qt::CustomizeWindowHint);
 		dev->setWindowTitle(deviceName);
 		dev->show();
