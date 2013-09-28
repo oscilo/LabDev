@@ -1,6 +1,7 @@
 #include <QString>
 #include <QStringList>
 #include <QByteArray>
+#include <QVector>
 
 #include <QRegExp>
 
@@ -13,10 +14,25 @@
 #define F_FIRST		8.
 #define F_LAST		12.
 
-#define L_COUNT		5
-#define S_COUNT		3
-#define SK_COUNT	3
-#define X_COUNT		10
+#define L_COUNT		10
+#define S_COUNT		10
+#define SK_COUNT	10
+#define X_COUNT		3
+
+#define L_START		11.48
+#define S_START		21.28
+#define SK_START	14.68
+#define X_START		3.68
+
+#define L_LAST		19.4
+#define S_LAST		38.65
+#define SK_LAST		26.65
+#define X_LAST		4.34
+
+#define L_STEP		0.88
+#define S_STEP		1.93
+#define SK_STEP		1.33
+#define X_STEP		3.68
 
 typedef float* float_ptr;
 float_ptr *data;
@@ -37,17 +53,34 @@ void RemoveDataArray() {
 	delete data;
 }
 
+struct DataPoint {
+	DataPoint() {}
+	DataPoint(float sk_, float l_, float s_) : sk(sk_), l(l_), s(s_) {}
+
+	bool operator < (const DataPoint &a) const {
+		return (sk == a.sk) ? ( (l == a.l) ? (s < a.s) : (l < a.l) ) : (sk < a.sk);
+	}
+
+	float sk;
+	float l;
+	float s;
+
+	QVector<float> data;
+};
+
 int main(int argc, char *argv[]) {
 	QFileInfoList fileList = QDir("./data/").entryInfoList(QStringList() << "*.txt");
 
-	QRegExp fileNameRx("x0 (\\d+)[ ]?(\\d+)?");
-	QRegExp paramsLineRx("_d0=(\\d+[\\.]?(\\d+)?)_l=(\\d+[\\.]?(\\d+)?)_sh=(\\d+[\\.]?(\\d+)?)/real");
+	QRegExp fileNameRx("0 (\\d+)[ ]?(\\d+)?");
+	QRegExp paramsLineRx("_l=(\\d+[\\.]?(\\d+)?)_d0=(\\d+[\\.]?(\\d+)?)_sh=(\\d+[\\.]?(\\d+)?)/real");
+	QRegExp valueRx("\\d+[\\.]?[\\d]?\\s+([-]?\\d+[\\.]?(\\d+)?)");
 
-	QMap<float, QStringList> params;
+	QMap<float, QList<DataPoint>> params;
 
+	DataPoint *curDataPoint = 0;
 	foreach(QFileInfo curInfo, fileList) {
 		QString fileName = curInfo.fileName();
-		if(-1 != fileNameRx.indexIn(curInfo.fileName())) {
+		if(-1 != fileNameRx.indexIn(fileName)) {
 			float x0Val = fileNameRx.cap(1).toInt();
 			if(fileNameRx.captureCount() == 2)
 				x0Val += fileNameRx.cap(2).toFloat() / 100;
@@ -60,21 +93,39 @@ int main(int argc, char *argv[]) {
 			while(!curFileRead.atEnd()) {
 				QString line = curFileRead.readLine();
 				if(-1 != paramsLineRx.indexIn(line)) {
-					params[x0Val] <<	 "sk = " + paramsLineRx.cap(1) + 
-										", l = " + paramsLineRx.cap(3) + 
-										", s = " + paramsLineRx.cap(5);
+					params[x0Val] << DataPoint( paramsLineRx.cap(1).toFloat(),
+													paramsLineRx.cap(3).toFloat(),
+													paramsLineRx.cap(5).toFloat());
+					curDataPoint = &(params[x0Val].last());
+				}
+
+				if(curDataPoint && (-1 != valueRx.indexIn(line))) {
+					curDataPoint->data << valueRx.cap(1).toFloat();
 				}
 			}
+
+			qSort(params[x0Val]);
 
 			curFileRead.close();
 		}
 	}
 	
 	QFile csvWrite("./data/data.csv");
-	csvWrite.open(QIODevice::WriteOnly | QIODevice::Text);
+	csvWrite.open(QIODevice::WriteOnly);
 	if(!csvWrite.isOpen())
 		return 1;
+	
+	QList<float> x0Vals = params.keys();
+	qSort(x0Vals);
 
+	foreach(float curx0, x0Vals) {
+		foreach(const DataPoint &dataPoint, params.value(curx0)) {
+			csvWrite.write((char*)dataPoint.data.data(), dataPoint.data.size()*sizeof(float));
+		}
+	}
+
+	csvWrite.close();
+	return 1;
 	/*
 	QList<int> lens;
 
@@ -82,9 +133,10 @@ int main(int argc, char *argv[]) {
 		lens << curList.length();
 	}
 	//*/
-	
-	#define PARAMS_LEN	25
-	#define X0VALS_LEN	10
+
+	/*
+	#define PARAMS_LEN	0x000003e8
+	#define X0VALS_LEN	3
 
 	QTextStream csvStream(&csvWrite);
 
@@ -106,6 +158,7 @@ int main(int argc, char *argv[]) {
 
 	//"x0 3 68.txt"
 	return 1;
+	//*/
 
 	/*
 	if(argc != 2)
