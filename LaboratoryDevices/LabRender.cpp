@@ -4,6 +4,8 @@
 #include <shellapi.h>
 #include <string>
 
+#define DEVICES_README_PATH		"./../Documents/Devices/"
+
 LabRender::LabRender(QWidget *parent, Qt::WindowFlags flags)
 	: QMainWindow(parent, flags)
 {
@@ -17,6 +19,9 @@ LabRender::LabRender(QWidget *parent, Qt::WindowFlags flags)
 
 	devicesMapper = new QSignalMapper(this);
 	connect(devicesMapper, SIGNAL(mapped(QWidget*)), this, SLOT(ShowHideDevice(QWidget *)));
+
+	readMeMapper = new QSignalMapper(this);
+	connect(readMeMapper, SIGNAL(mapped(const QString&)), this, SLOT(ShowDeviceReadMe(const QString&)));
 
 	labMerger = new LabMerger;
 	labMerger->moveToThread(labMerger);
@@ -60,9 +65,11 @@ void LabRender::CreateMenus()
 	
 	CreateFooterDevicesAction();
 
-	descrAction = menuBar()->addAction(RUS("Read me"));	//DS	Описание
+	readMeMenu = menuBar()->addMenu(RUS("Read me"));
+	readMeMenu->addSeparator();
+	descrAction = readMeMenu->addAction(RUS("Facility description"));	//DS	Описание
 	connect(descrAction, SIGNAL(triggered()), this, SLOT(ShowLabDescription()));
-	descrAction->setDisabled(true);
+	readMeMenu->setDisabled(true);
 
 	closeAction = menuBar()->addAction(RUS("Exit"));		//DS Выход
 	connect(closeAction, SIGNAL(triggered()), this, SLOT(close()));
@@ -71,7 +78,6 @@ void LabRender::CreateMenus()
 	aboutAction = menuBar()->addAction(RUS("About ..."));	
 	//QAction *aboutAction = menuBar()->addAction(RUS(L"О программе"));
 	connect(aboutAction, SIGNAL(triggered()), this, SLOT(ShowAboutSlot()));
-
 }
 
 //DS
@@ -122,12 +128,18 @@ bool LabRender::IsLabFacilityOpen()
 
 	return ret;
 }
-void LabRender::ShowLabDescription()
-{
+void LabRender::ShowLabDescription() {
 	QString file = labMerger->GetDescriptionFileName(lfac);
 	QFileInfo fi(file);
 
 	QString filePath = "file:///" + fi.canonicalFilePath();
+
+	QDesktopServices::openUrl(filePath);
+}
+void LabRender::ShowDeviceReadMe(const QString &fileName) {
+	QDir dir(DEVICES_README_PATH);
+
+	QString filePath = "file:///" + dir.canonicalPath() + "/" + fileName;
 
 	QDesktopServices::openUrl(filePath);
 }
@@ -141,14 +153,17 @@ void LabRender::CloseLabFacility()
 	devicesMenu->setDisabled(true);
 	devicesMenu->clear();
 
-	descrAction->setDisabled(true);
+	readMeMenu->setDisabled(true);
+	QAction *curAction;
+	while(!(curAction = readMeMenu->actions().first())->isSeparator())
+		readMeMenu->removeAction(curAction);
 }
 void LabRender::ChangeLabFacility(QAction *act)
 {
 	CloseLabFacility();
 	
 	devicesMenu->setDisabled(false);
-	descrAction->setDisabled(false);
+	readMeMenu->setDisabled(false);
 
 	lfac = LabFacility(act->data().toInt(), act->text());
 
@@ -159,10 +174,9 @@ void LabRender::ChangeLabFacility(QAction *act)
 
 	emit RequestDevicesSignal(lfac);
 }
-void LabRender::ReceiveDevicesSlot(const QVector<AbstractDevice*> &devices)
-{
-	foreach(AbstractDevice *dev, devices)
-	{	
+void LabRender::ReceiveDevicesSlot(const QVector<AbstractDevice*> &devices) {
+	QAction *readMeSeparator = readMeMenu->actions().first();
+	foreach(AbstractDevice *dev, devices) {	
 		QString deviceName = dev->getDeviceName();
 
 		QMdiSubWindow *subWindow = centralWidget->addSubWindow(dev,	Qt::Window |
@@ -178,6 +192,20 @@ void LabRender::ReceiveDevicesSlot(const QVector<AbstractDevice*> &devices)
 		devicesMapper->setMapping(action, dev);
 
 		devicesMenu->addAction(action);
+
+		QDir dir(DEVICES_README_PATH);
+		foreach(const QFileInfo &curFileInfo, dir.entryInfoList()) {
+			QString pattern = "^" + dev->getDeviceIDName() + "\\.[\\w]+";
+			QString fileName = curFileInfo.fileName();
+			QRegExp rx("^" + dev->getDeviceIDName() + "\\.[\\w]+");
+			if( -1 != rx.indexIn(curFileInfo.fileName()) ) {
+				QAction *manualAction = new QAction(dev->getDeviceName(), this);
+				readMeMenu->insertAction(readMeSeparator, manualAction);
+				connect(manualAction, SIGNAL(triggered()), readMeMapper, SLOT(map()));
+				readMeMapper->setMapping(manualAction, curFileInfo.fileName());
+				break;
+			}
+		}
 	}
 
 	AddFooterDevicesAction();

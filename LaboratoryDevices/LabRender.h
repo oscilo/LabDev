@@ -23,6 +23,7 @@ protected:
 private slots:
 	void ChangeLabFacility(QAction*);
 	void ShowLabDescription();
+	void ShowDeviceReadMe(const QString&);
 	void ShowHideDevice(QWidget*);
 	void SetTabbedSubWindows(bool);
 	void ReceiveDevicesSlot(const QVector<AbstractDevice*>&);
@@ -44,6 +45,7 @@ private:
 
 	QMenu *labFacMenu;
 	QMenu *devicesMenu;
+	QMenu *readMeMenu;
 	QAction *descrAction;
 	QAction *closeAction;
 
@@ -60,6 +62,7 @@ private:
 
 	QMdiArea *centralWidget;
 	QSignalMapper *devicesMapper;
+	QSignalMapper *readMeMapper;
 };
 
 #endif
