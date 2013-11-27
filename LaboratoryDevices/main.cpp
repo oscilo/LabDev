@@ -1,6 +1,8 @@
 #include "globals.h"
 #include "StartWindow.h"
 
+#include "Validation.h"
+
 Q_DECLARE_METATYPE(QVector<AbstractDevice*>)
 Q_DECLARE_METATYPE(AbstractDevicePtr)
 Q_DECLARE_METATYPE(LabFacility)
@@ -8,8 +10,7 @@ Q_DECLARE_METATYPE(QMessageBox::Icon)
 Q_DECLARE_METATYPE(QVector<DeviceInstance>)
 Q_DECLARE_METATYPE(QList<DeviceInfo>)
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
 	QApplication a(argc, argv);
 	a.setQuitOnLastWindowClosed(false);
 
@@ -19,6 +20,9 @@ int main(int argc, char *argv[])
 	qRegisterMetaType<QMessageBox::Icon>();
 	qRegisterMetaType<QVector<DeviceInstance>>();
 	qRegisterMetaType<QList<DeviceInfo>>();
+
+	if(!FindValidationServer())
+		return 0;
 
 	StartWindow w(0, Qt::Window | Qt::FramelessWindowHint);
 	QObject::connect(&w, SIGNAL(quitSignal()), &a, SLOT(quit()));

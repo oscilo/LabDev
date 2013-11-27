@@ -44,7 +44,8 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <PreBuildEvent>
-      <Command>.\NSIS\makensis.exe LaboratoryDevicesSetup.nsi</Command>
+      <Command>.\NSIS\makensis.exe LaboratoryDevicesSetup.nsi
+.\NSIS\makensis.exe ValidationServerSetup.nsi</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

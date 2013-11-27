@@ -148,6 +148,9 @@
     <ClCompile Include="GeneratedFiles\Debug\moc_StartWindow.cpp">
       <Filter>Generated Files\Debug</Filter>
     </ClCompile>
+    <ClCompile Include="Validation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="globals.h">
@@ -161,6 +164,9 @@
     </ClInclude>
     <ClInclude Include="..\AbstractDevices\DeviceException.h">
       <Filter>Header Files\AbstractDevices</Filter>
+    </ClInclude>
+    <ClInclude Include="Validation.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
