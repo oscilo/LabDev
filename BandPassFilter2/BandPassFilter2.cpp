@@ -4,7 +4,7 @@
 PaintingWidget::PaintingWidget(QWidget* parent) : QWidget(parent) {
 	pixName = "./Resources/BandPassFilter2/BandPassFilter2.PNG";
 
-	this->setMinimumSize(200, 200);
+	this->setMinimumSize(400, 300);
 }
 void PaintingWidget::SetPicture() {
 	pix = QPixmap(pixName);
@@ -44,15 +44,15 @@ BandPassFilter2::BandPassFilter2(QWidget *parent, Qt::WindowFlags flags) :
 	l_2Slider = new QSlider(Qt::Vertical, this);
 	l_3Slider = new QSlider(Qt::Vertical, this);
 
-	l0_2Label = new QLabel("21.28", this);
-	l0_3Label = new QLabel("11.48", this);
-	l_2Label = new QLabel("14.68", this);
-	l_3Label = new QLabel("3.68", this);
+	l0_2Label = new QLabel("4.005", this);
+	l0_3Label = new QLabel("9.594", this);
+	l_2Label = new QLabel("10.35", this);
+	l_3Label = new QLabel("8.703", this);
 
-	l0_2Slider->setRange(0, 9);
-	l0_3Slider->setRange(0, 9);
-	l_2Slider->setRange(0, 9);
-	l_3Slider->setRange(0, 9);
+	l0_2Slider->setRange(0, 5);
+	l0_3Slider->setRange(0, 5);
+	l_2Slider->setRange(0, 5);
+	l_3Slider->setRange(0, 5);
 
 	lay->addWidget(new QLabel("l0_2", this),0, 0);
 	lay->addWidget(l0_2Slider,				1, 0);
@@ -83,25 +83,25 @@ QString BandPassFilter2::getDeviceIDName() {
 	return "BandPassFilter2";
 }
 void BandPassFilter2::SlidersUpdate() {
-	int sValue	= L0_2_START +	(l0_2Slider->value() *	L0_2_STEP);
-	int skValue = L0_3_START +	(l0_3Slider->value() *	L0_3_STEP);
-	int lValue	= L_2_START +	(l_2Slider->value() *	L_2_STEP);
-	int xValue	= L_3_START +	(l_3Slider->value() *	L_2_STEP);
+	int l0_2Value	= L0_2_START +	(l0_2Slider->value() *	L0_2_STEP);
+	int l0_3Value	= L0_3_START +	(l0_3Slider->value() *	L0_3_STEP);
+	int l_2Value	= L_2_START +	(l_2Slider->value() *	L_2_STEP);
+	int l_3Value	= L_3_START +	(l_3Slider->value() *	L_3_STEP);
 
-	QString sStr = QString::number(sValue / 100.);
-	QString lStr = QString::number(lValue / 100.);
-	QString skStr = QString::number(skValue / 100.);
-	QString xStr = QString::number(xValue / 100.);
+	QString l0_2Str = QString::number(l0_2Value / 1000.);
+	QString l0_3Str = QString::number(l0_3Value / 1000.);
+	QString l_2Str	= QString::number(l_2Value / 1000.);
+	QString l_3Str	= QString::number(l_3Value / 1000.);
 
-	l0_2Label->setText(sStr);
-	l0_3Label->setText(lStr);
-	l_2Label->setText(skStr);
-	l_3Label->setText(xStr);
+	l0_2Label->setText(l0_2Str);
+	l0_3Label->setText(l0_3Str);
+	l_2Label->setText(l_2Str);
+	l_3Label->setText(l_3Str);
 
-	bandPassFilter2Func->set_l0_2(sValue);
-	bandPassFilter2Func->set_l0_3(lValue);
-	bandPassFilter2Func->set_l_2(skValue);
-	bandPassFilter2Func->set_l_3(xValue);
+	bandPassFilter2Func->set_l0_2(l0_2Value);
+	bandPassFilter2Func->set_l0_3(l0_3Value);
+	bandPassFilter2Func->set_l_2(l_2Value);
+	bandPassFilter2Func->set_l_3(l_3Value);
 
 	this->repaint();
 	emit repaintSignal();

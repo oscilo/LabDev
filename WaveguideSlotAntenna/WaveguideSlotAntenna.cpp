@@ -4,7 +4,7 @@
 PaintingWidget::PaintingWidget(QWidget* parent) : QWidget(parent) {
 	pixName = "./Resources/WaveguideSlotAntenna/WaveguideSlotAntenna.PNG";
 
-	this->setMinimumSize(200, 200);
+	this->setMinimumSize(400, 300);
 }
 void PaintingWidget::SetPicture() {
 	pix = QPixmap(pixName);

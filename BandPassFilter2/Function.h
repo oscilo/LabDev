@@ -5,15 +5,15 @@
 
 #include <AbstractFunc.h>
 
-#define F_STEP		0.004
-#define F_FIRST		8.
-#define F_LAST		12.
+#define F_STEP		0.008
+#define F_FIRST		4.
+#define F_LAST		12.008
 
-#define L0_2_COUNT	7
-#define L0_3_COUNT	7
-#define L_2_COUNT	7
-#define L_3_COUNT	7
-
+#define L0_2_COUNT	6
+#define L0_3_COUNT	6
+#define L_2_COUNT	6
+#define L_3_COUNT	6
+/*
 #define L0_2_START	2128
 #define L0_3_START	368
 #define L_2_START	1468
@@ -28,6 +28,23 @@
 #define L0_3_STEP	193
 #define L_2_STEP	133
 #define L_2_STEP	33
+//*/
+
+#define L0_2_START	4005
+#define L0_2_LAST	4745
+#define L0_2_STEP	148
+
+#define L0_3_START	9594
+#define L0_3_LAST	11369
+#define L0_3_STEP	355
+	
+#define L_2_START	10350
+#define L_2_LAST	12265
+#define L_2_STEP	383
+	
+#define L_3_START	8703
+#define L_3_LAST	10303
+#define L_3_STEP	320
 
 class BandPassFilter2Func : public AbstractFunc {
 public:
@@ -78,12 +95,12 @@ private:
 		int cur_l_2;
 		int cur_l_3;
 
-		QVector<float> value((F_LAST - F_FIRST)/F_STEP + 1);
+		QVector<float> value(1001);
 
-		for(cur_l0_2 = L0_3_START;	cur_l0_2 <= L0_2_LAST;	cur_l0_2 += L0_2_STEP) {
-		for(cur_l0_3 = L0_2_START;	cur_l0_3 <= L0_3_LAST;	cur_l0_3 += L0_3_STEP) {
-		for(cur_l_2 = L_3_START;	cur_l_2 <= L_2_LAST;	cur_l_2 += L_2_STEP) {
-		for(cur_l_3 = L_2_START;	cur_l_3 <= L_3_LAST;	cur_l_3 += L_2_STEP) {
+		for(cur_l0_2 = L0_2_START;	cur_l0_2 <= L0_2_LAST;	cur_l0_2 += L0_2_STEP) {
+		for(cur_l0_3 = L0_3_START;	cur_l0_3 <= L0_3_LAST;	cur_l0_3 += L0_3_STEP) {
+		for(cur_l_2 = L_2_START;	cur_l_2 <= L_2_LAST;	cur_l_2 += L_2_STEP) {
+		for(cur_l_3 = L_3_START;	cur_l_3 <= L_3_LAST;	cur_l_3 += L_3_STEP) {
 			dataFile.read((char*)value.data(), value.size()*sizeof(float));
 			SetValue(cur_l0_2, cur_l0_3, cur_l_2, cur_l_3, value);
 		}}}}
@@ -99,7 +116,7 @@ private:
 		AbstractFunc *add_func = inputs["input_signal"];
 		
 		float arg = freq / 1000.;
-		int offset = (arg - 8.) / 0.004;
+		int offset = (arg - F_FIRST) / F_STEP;
 
 		return GetCurrentValue(offset);
 	}
