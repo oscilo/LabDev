@@ -52,7 +52,8 @@ Section "Start Menu Shortcuts"
 
   CreateDirectory "$SMPROGRAMS\ValidationServer"
   CreateShortCut "$SMPROGRAMS\ValidationServer\Uninstall.lnk" "$INSTDIR\uninstall.exe" "" "$INSTDIR\uninstall.exe" 0
-  CreateShortCut "$SMPROGRAMS\ValidationServer\ValidationServer.lnk" "$INSTDIR\Bin\ValidationServer.exe" "-setup_mode" "$INSTDIR\Bin\ValidationServer.exe" 0
+  CreateShortCut "$SMPROGRAMS\ValidationServer\ValidationServerSetup.lnk" "$INSTDIR\Bin\ValidationServer.exe" "-setup_mode" "$INSTDIR\Bin\ValidationServer.exe" 0
+  CreateShortCut "$SMPROGRAMS\ValidationServer\ValidationServer.lnk" "$INSTDIR\Bin\ValidationServer.exe" "" "$INSTDIR\Bin\ValidationServer.exe" 0
   
 SectionEnd
 

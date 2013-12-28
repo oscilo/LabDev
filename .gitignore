@@ -5,7 +5,9 @@
 *.suo
 *.bak
 Output/*.*
+ValidationServerOutput/*.*
 LaboratoryDevicesSetup.exe
+ValidationServerSetup.exe
 Temp/
 *.sdf
 *.opensdf
