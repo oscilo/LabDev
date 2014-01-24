@@ -62,6 +62,7 @@ private:
 				map[cur_l][cur_s] = valuesVector;
 			}
 		}
+		dataFile.close();
 
 		for(float f = 8.; f <= 12.; f += 0.004)
 			freqValues << f;
@@ -107,6 +108,7 @@ private:
 				(x - x0)*(x - x2)*y1/( (x1 - x0)*(x1 - x2) ) +
 				(x - x0)*(x - x1)*y2/( (x2 - x0)*(x2 - x1) );
 		*/
+
 		return curValues.at(offset);
 	}
 

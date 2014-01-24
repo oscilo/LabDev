@@ -52,7 +52,7 @@ int main(int argc, char *argv[]) {
 
 	QTextStream csvStream(&csvData, QIODevice::ReadOnly);
 
-	QRegExp rx("(-?\\d+\\.\\d+);?");
+	QRegExp rx("([-]?\\d+[\\.\\,]?(\\d+)?[E]?[-]?(\\d+)?);?");
 	int f_num = 0;
 	int s_num = 0;
 	int l_num = 0;
