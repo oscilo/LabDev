@@ -84,8 +84,10 @@ BandPassFilter::BandPassFilter(QWidget *parent, Qt::WindowFlags flags) :
 	h1Label = new QLabel("0", this);
 	h2Label = new QLabel("0", this);
 
-	h1Slider->setRange(0, 99);
-	h2Slider->setRange(0, 99);
+	//h1Slider->setRange(0, 99);
+	//h2Slider->setRange(0, 99);
+	h1Slider->setRange(0, 5);
+	h2Slider->setRange(0, 5);
 
 	lay->addWidget(new QLabel("h1", this),	0, 0);
 	lay->addWidget(h1Slider,				1, 0);
@@ -108,8 +110,10 @@ QString BandPassFilter::getDeviceIDName() {
 	return "BandPassFilter";
 }
 void BandPassFilter::SlidersUpdate() {
-	int h1Value = h1Slider->value();
-	int h2Value = h2Slider->value();
+	//int h1Value = h1Slider->value();
+	//int h2Value = h2Slider->value();
+	int h1Value = h1Slider->value() * 20;
+	int h2Value = h2Slider->value() * 20;
 
 	QString h1Str = QString::number(h1Value / 10.);
 	QString h2Str = QString::number(h2Value / 10.);

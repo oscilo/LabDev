@@ -82,11 +82,11 @@ private:
 		int nextL = (l - curL) ? (curL + L_STEP) : curL;
 
 		const QVector <float> &curValues(map.value(curL).value(curS));
-		const QVector <float> &nextValues(map.value(nextL).value(nextS));
+		//const QVector <float> &nextValues(map.value(nextL).value(nextS));
 
 		float arg = freq / 1000.;
 		int offset = (arg - 8.) / 0.004;
-
+		/*
 		float totalWeight = ((curS == nextS) ? 0 : S_STEP) + ((curL == nextL) ? 0 : L_STEP);
 		float weight = 0.;
 		if(totalWeight)
@@ -94,7 +94,7 @@ private:
 
 		const float &x1(freqValues.at(offset));
 		const float y1 = (curValues.at(offset) * (1 - weight)) + (nextValues.at(offset) * weight);
-
+		
 		const float &x0(freqValues.at(offset - 1));
 		const float y0 = (curValues.at(offset - 1) * (1 - weight)) + (nextValues.at(offset - 1) * weight);
 
@@ -106,6 +106,8 @@ private:
 		return	(x - x1)*(x - x2)*y0/( (x0 - x1)*(x0 - x2) ) +
 				(x - x0)*(x - x2)*y1/( (x1 - x0)*(x1 - x2) ) +
 				(x - x0)*(x - x1)*y2/( (x2 - x0)*(x2 - x1) );
+		*/
+		return curValues.at(offset);
 	}
 
 	QMap<int, QMap<int, QVector<float>>> map;

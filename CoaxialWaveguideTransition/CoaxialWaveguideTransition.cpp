@@ -78,8 +78,10 @@ CoaxialWaveguideTransition::CoaxialWaveguideTransition(QWidget *parent, Qt::Wind
 	sLabel = new QLabel("3.5", this);
 	lLabel = new QLabel("0", this);
 
-	sSlider->setRange(35, 154);
-	lSlider->setRange(0, 99);
+	//sSlider->setRange(35, 154);
+	//lSlider->setRange(0, 99);
+	sSlider->setRange(0, 4);
+	lSlider->setRange(0, 5);
 
 	lay->addWidget(new QLabel("l", this),	0, 0);
 	lay->addWidget(lSlider,					1, 0);
@@ -102,8 +104,10 @@ QString CoaxialWaveguideTransition::getDeviceIDName() {
 	return "CoaxialWaveguideTransition";
 }
 void CoaxialWaveguideTransition::SlidersUpdate() {
-	int sValue = sSlider->value();
-	int lValue = lSlider->value();
+	//int sValue = sSlider->value();
+	//int lValue = lSlider->value();
+	int sValue = 35 + (sSlider->value() * 30);
+	int lValue = lSlider->value() * 20;
 
 	QString sStr = QString::number(sValue / 10.);
 	QString lStr = QString::number(lValue / 10.);
